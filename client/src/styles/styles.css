@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+.flex {
+  display: flex;
+}
+.flex-j-c {
+  justify-content: center;
+}
+.flex-j-s-b {
+  justify-content: space-between;
+}
+.flex-j-f-s {
+  justify-content: flex-start;
+}
+.flex-a-i {
+  align-items: center;
+}
+.flex-f-d-c {
+  flex-direction: column;
+}
+.flex-f-w {
+  flex-wrap: wrap;
+}
+
+.hide {
+  display: none;
+}
+
+.landingPage .main {
+  height: 100vh;
+  width: 100vw;
+}
+.landingPage .main .text {
+  height: auto;
+  width: 550px;
+}
+.landingPage .main .text__title {
+  font-size: 32px;
+  text-align: center;
+  color: #B11005;
+  font-weight: 900;
+}
+.landingPage .main .text .bigLogo {
+  height: 150px;
+  width: 370px;
+  position: relative;
+}
+.landingPage .landingPageWave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: auto;
+}
+.landingPage .technologies {
+  width: 100vw;
+  height: 200px;
+  color: #b6b3b3;
+}
+.landingPage .technologies__text {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px;
+}
+.landingPage .technologies__icon {
+  margin: 0px 40px;
+  font-size: 50px;
+}
+.landingPage .adventages {
+  width: 100vw;
+  height: 100vh;
+  background-color: #B11005;
+}
+.landingPage .adventages .adventage__icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0303B5;
+  color: #F0F0F0;
+  font-size: 50px;
+}
+.landingPage .aboutTheTeam {
+  height: 300px;
+  width: 100vw;
+  position: relative;
+  background-color: #0303B5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}/*# sourceMappingURL=styles.css.map */
