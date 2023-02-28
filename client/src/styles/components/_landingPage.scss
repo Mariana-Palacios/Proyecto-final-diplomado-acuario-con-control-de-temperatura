@@ -1,15 +1,28 @@
+@import '../elements/button'; 
+
 .landingPage{
     .main{
         height: 100vh;
         width: 100vw;
         .text{
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            transform: translate(-20%,-50%);
             height: auto;
             width: 550px;
             &__title{
+                margin: 25px 0px 60px 0px;
                 font-size: 32px;
                 text-align: center;
                 color: $dark-red;
                 font-weight:900;
+            }
+            &__button{
+                @include button($red, $gray, 25px, 15px, 15px, 40px);
+            }
+            &__button:hover{
+                @include buttonHover($blue,$gray, $dark-blue)
             }
             .bigLogo{
                 height: 150px;
@@ -42,16 +55,53 @@
         }
     }
     .adventages{
+        position: relative;
         width: 100vw;
         height: 100vh;
+        padding: 5%;
         background-color: $dark-red;
+        z-index: -10;
+        &__title{
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
+            color: $gray;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        &__backgroundLine{
+            width: 80%;
+            height: 20px;
+            background: $blue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: -1;
+        }
         .adventage{
+            position: relative;
+            width: 33%;
+            height: 40%;
+            margin: 0% 2%;
+            text-align: center;
+            @include button($gray, $black, 16px, 5px, 5px, 20px);
+            &-1{
+                top: -15%;
+            }
+            &-3{
+                top: 15%;
+            }
             &__icon{
+                position: absolute;
                 width: 100px;
                 height: 100px;
+                top: -50px;
                 border-radius: 50%;
                 background-color: $dark-blue;
-                color: $gray; 
+                color: $gray;
+                //margin-top: -5px; 
                 font-size: 50px;
             }
             &__text{
@@ -64,5 +114,16 @@
         width: 100vw;
         position: relative;
         background-color: $dark-blue;
+        &__button{
+            @include button($red, $gray, 25px, 15px, 15px, 40px);
+            position: absolute;
+            z-index: 10;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        &__button:hover{
+            @include buttonHover($gray,$black, $dark-gray)
+        }
     }
 }

@@ -30,14 +30,34 @@
   width: 100vw;
 }
 .landingPage .main .text {
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translate(-20%, -50%);
   height: auto;
   width: 550px;
 }
 .landingPage .main .text__title {
+  margin: 25px 0px 60px 0px;
   font-size: 32px;
   text-align: center;
   color: #B11005;
   font-weight: 900;
+}
+.landingPage .main .text__button {
+  background: #FF0000;
+  color: #F0F0F0;
+  padding: 15px 15px;
+  border-radius: 40px;
+  font-size: 25px;
+  border-color: transparent;
+}
+.landingPage .main .text__button:hover {
+  background-color: #0404E2;
+  color: #F0F0F0;
+  border: 5px solid #0303B5;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 .landingPage .main .text .bigLogo {
   height: 150px;
@@ -67,13 +87,56 @@
   font-size: 50px;
 }
 .landingPage .adventages {
+  position: relative;
   width: 100vw;
   height: 100vh;
+  padding: 5%;
   background-color: #B11005;
+  z-index: -10;
+}
+.landingPage .adventages__title {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  color: #F0F0F0;
+  font-size: 35px;
+  font-weight: bold;
+}
+.landingPage .adventages__backgroundLine {
+  width: 80%;
+  height: 20px;
+  background: #0404E2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.landingPage .adventages .adventage {
+  position: relative;
+  width: 33%;
+  height: 40%;
+  margin: 0% 2%;
+  text-align: center;
+  background: #F0F0F0;
+  color: #34313D;
+  padding: 5px 5px;
+  border-radius: 20px;
+  font-size: 16px;
+  border-color: transparent;
+}
+.landingPage .adventages .adventage-1 {
+  top: -15%;
+}
+.landingPage .adventages .adventage-3 {
+  top: 15%;
 }
 .landingPage .adventages .adventage__icon {
+  position: absolute;
   width: 100px;
   height: 100px;
+  top: -50px;
   border-radius: 50%;
   background-color: #0303B5;
   color: #F0F0F0;
@@ -84,6 +147,26 @@
   width: 100vw;
   position: relative;
   background-color: #0303B5;
+}
+.landingPage .aboutTheTeam__button {
+  background: #FF0000;
+  color: #F0F0F0;
+  padding: 15px 15px;
+  border-radius: 40px;
+  font-size: 25px;
+  border-color: transparent;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.landingPage .aboutTheTeam__button:hover {
+  background-color: #F0F0F0;
+  color: #34313D;
+  border: 5px solid #b6b3b3;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 * {

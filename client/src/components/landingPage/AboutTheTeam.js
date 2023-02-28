@@ -10,8 +10,8 @@ const AboutTheTeam = () => {
             src = {waterBackground}
             layout="fill"
             objectFit="cover"
-            //className ='bigLogo__image'
           />
+          <button className='aboutTheTeam__button'>Meet our team</button>
     </section>
   )
 }

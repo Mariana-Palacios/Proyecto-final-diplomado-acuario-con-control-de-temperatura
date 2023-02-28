@@ -16,6 +16,7 @@ const Main = () => {
           />
         </div>
         <h1 className='text__title'>Maintain the perfect aquarium <br/>temperature with ease.</h1>
+        <button className='text__button'>Get started</button>
       </div>
     </main>
   )
