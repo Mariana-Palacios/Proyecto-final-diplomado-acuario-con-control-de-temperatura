@@ -1,22 +1,22 @@
 import Link from 'next/link'
 //import { Inter } from '@next/font/google'
-import '../styles/styles.css'
+//import '../styles/styles.css'
 
 //const inter = Inter({ subsets: ['latin'] })
-/*
+
 const Nav = () => {
     const linksNames= ['home','adventages','noseMan'] 
     return (
         <nav className='nav flex'>
             <ul className='flex'>
-                <li><Link href="/">home</Link></li>
+                {linksNames.map((linkName)=>{
+                    return <li><Link href="/">{linkName}</Link></li> 
+                })}
             </ul>
-            <button>login</button>
+            <Link href='/login'><button >login</button></Link>
         </nav>
   )
 }
 
 
 export default Nav
-
-*/

@@ -55,7 +55,7 @@
 .landingPage .main .text__button:hover {
   background-color: #0404E2;
   color: #F0F0F0;
-  border: 5px solid #0303B5;
+  border: 3px solid #0303B5;
   cursor: -webkit-grab;
   cursor: grab;
 }
@@ -164,9 +164,53 @@
 .landingPage .aboutTheTeam__button:hover {
   background-color: #F0F0F0;
   color: #34313D;
-  border: 5px solid #b6b3b3;
+  border: 3px solid #b6b3b3;
   cursor: -webkit-grab;
   cursor: grab;
+}
+
+.login {
+  width: 100vw;
+  height: 100vh;
+}
+.login .form {
+  background: none;
+  color: #34313D;
+  padding: 10% 5%;
+  border-radius: 20px;
+  font-size: 16px;
+  border-color: transparent;
+  height: 70vh;
+  width: 30vw;
+  border: 2px solid #34313D;
+}
+.login .form__title {
+  text-align: center;
+}
+.login .form__input {
+  border: 0;
+  border-bottom: 2px solid #34313D;
+}
+.login .form__input:focus, .login .form__input:focus, .login .form__input[type]:focus, .login .form__input:hover {
+  outline: 0 none;
+  border-bottom: 2px solid #0303B5;
+}
+.login .form__button {
+  background: #FF0000;
+  color: #F0F0F0;
+  padding: 10px 10px;
+  border-radius: 40px;
+  font-size: 16px;
+  border-color: transparent;
+  font-weight: bold;
+}
+.login .form__button:hover {
+  background-color: #F0F0F0;
+  color: #34313D;
+  border: 3px solid #b6b3b3;
+  cursor: -webkit-grab;
+  cursor: grab;
+  border: 2px solid #b6b3b3 !important;
 }
 
 * {

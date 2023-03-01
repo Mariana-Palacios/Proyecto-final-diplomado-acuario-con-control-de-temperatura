@@ -1,9 +1,12 @@
+import Nav from '../components/Nav'
+
 export default function RootLayout({ children }) {
   return (
     <html>
-      <head />
-      <nav>hola nojoda</nav>
-      <body>{children}</body>
+      <body>
+        <Nav/>
+        {children}
+      </body>
     </html>
   )
 }
