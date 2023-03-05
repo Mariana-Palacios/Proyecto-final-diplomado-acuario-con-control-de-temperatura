@@ -14,6 +14,9 @@
 .flex-a-i {
   align-items: center;
 }
+.flex-a-i-s-b {
+  align-items: space-between;
+}
 .flex-f-d-c {
   flex-direction: column;
 }
@@ -148,6 +151,12 @@
   position: relative;
   background-color: #0303B5;
 }
+.landingPage .aboutTheTeam__img {
+  -o-object-fit: "cover";
+     object-fit: "cover";
+  width: 100%;
+  height: auto;
+}
 .landingPage .aboutTheTeam__button {
   background: #FF0000;
   color: #F0F0F0;
@@ -181,6 +190,7 @@
   font-size: 16px;
   border-color: transparent;
   height: 70vh;
+  min-height: 500px;
   width: 30vw;
   border: 2px solid #34313D;
 }
@@ -211,6 +221,23 @@
   cursor: -webkit-grab;
   cursor: grab;
   border: 2px solid #b6b3b3 !important;
+}
+
+.nav {
+  position: absolute;
+  padding: 10px;
+  height: auto;
+  width: 100vw;
+}
+.nav__logo {
+  max-height: 90px; /* Agregamos esta propiedad para limitar la altura del contenedor */
+  max-height: 90px;
+  width: 90px;
+  height: 90px;
+}
+.nav__logo .img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 * {

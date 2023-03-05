@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import '../../styles/styles.css'
 import landingPageWave from '../../../public/logo.svg'
@@ -16,7 +17,7 @@ const Main = () => {
           />
         </div>
         <h1 className='text__title'>Maintain the perfect aquarium <br/>temperature with ease.</h1>
-        <button className='text__button'>Get started</button>
+        <Link href='/login'><button className='text__button'>Get started</button></Link>
       </div>
     </main>
   )

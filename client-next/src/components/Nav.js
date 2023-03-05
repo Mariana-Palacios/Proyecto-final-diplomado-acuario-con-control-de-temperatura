@@ -1,13 +1,20 @@
 import Link from 'next/link'
-//import { Inter } from '@next/font/google'
-//import '../styles/styles.css'
+import Image from 'next/image'
 
-//const inter = Inter({ subsets: ['latin'] })
+import logo from '../../public/logoSmall.svg'
 
 const Nav = () => {
     const linksNames= ['home','adventages','noseMan'] 
     return (
-        <nav className='nav flex'>
+        <nav className='nav flex flex-j-s-b flex-a-i'>
+            <div className='nav__logo'>
+                <Image
+                    alt='logo'
+                    src={logo} 
+                    width={50}
+                    height={50}
+                />
+            </div>
             <ul className='flex'>
                 {linksNames.map((linkName)=>{
                     return <li><Link href="/">{linkName}</Link></li> 

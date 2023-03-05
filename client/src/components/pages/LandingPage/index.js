@@ -1,0 +1,18 @@
+import AboutTheTeam from "./AboutTheTeam";
+import Adventages from "./Advantages";
+import Main from "./Main";
+import Tecnologies from './Tecnologies'
+
+
+const landingPage = () => {
+    return (
+        <div className="landingPage">
+            <Main/>
+            <Adventages/>
+            <AboutTheTeam/>
+            <Tecnologies/>
+        </div>
+    )
+}
+  
+export default landingPage;

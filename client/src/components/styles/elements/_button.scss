@@ -1,0 +1,17 @@
+@mixin button($backgroundColor, $fontColor, $fontSize, $padding-top, $padding-rigth, $border-radius) {
+    background: $backgroundColor;
+    color: $fontColor; 
+    padding: $padding-top $padding-rigth;
+    border-radius: $border-radius;
+    font-size: $fontSize;
+    border-color: transparent;
+}
+
+@mixin buttonHover($backgroundColor,$fontColor, $borderColor) {
+    background-color: $backgroundColor;
+    color: $fontColor;
+    border: 3px solid $borderColor;
+    cursor: grab;
+}
+  
+  
