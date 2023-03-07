@@ -1,3 +1,5 @@
+import React from 'react';
+
 import AboutTheTeam from "./AboutTheTeam";
 import Adventages from "./Advantages";
 import Main from "./Main";

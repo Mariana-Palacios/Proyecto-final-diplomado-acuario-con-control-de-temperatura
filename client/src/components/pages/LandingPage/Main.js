@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Outlet, Link } from "react-router-dom";
 
 import '../../styles/styles.css'
@@ -15,6 +17,7 @@ const Main = () => {
         <h1 className='text__title'>Maintain the perfect aquarium <br/>temperature with ease.</h1>
         <Link to="/NewAquarium"><button className='text__button'>Get started</button></Link>
       </div>
+      <Outlet />
     </main>
   )
 }

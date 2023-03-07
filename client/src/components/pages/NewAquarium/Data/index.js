@@ -7,7 +7,7 @@ import { GiTurtle } from 'react-icons/gi';
 import { RxTriangleUp, RxTriangleDown } from 'react-icons/rx';
 
 // Functions
-import SelectionItem from '../../utils/SelectionItem';
+import SelectionItem from '../../../utils/SelectionItem';
 
 //icons
 const iconLogo = [
@@ -35,7 +35,7 @@ const ShowData = () => {
     console.log(auxiliarArray)
   }
   return (
-    <div className="showData">
+    <div className="NewAquarium flex flex-j-c flex-a-i flex-f-d-c">
       {iconLogo.map((logo, index) => (
         <SelectionItem
           key={index}

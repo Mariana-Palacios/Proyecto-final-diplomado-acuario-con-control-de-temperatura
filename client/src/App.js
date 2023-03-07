@@ -1,20 +1,29 @@
-//import ReactDOM from "react-dom/client";
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './components/styles/styles.css'
 import LandingPage from './components/pages/LandingPage';
-import ShowData from './components/pages/ShowData';
+//import ShowData from './components/pages/ShowData';
+import NewAquarium from './components/pages/NewAquarium';
+import Name from './components/pages/NewAquarium/Name/index';
+import Information from './components/pages/NewAquarium/Information';
+import Data from './components/pages/NewAquarium/Data';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage/>}>
-          <Route index element={<LandingPage/>} />
-          <Route path="/acuarium" element={<ShowData />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<LandingPage />} />
+          <Route path="/NewAquarium" >
+            <Route path="/NewAquarium" element={<NewAquarium />}/>
+            <Route path="/NewAquarium/Name" element={<Name />}/>
+            <Route path="/NewAquarium/Information" element={<Information />}/>
+            <Route path="/NewAquarium/Data" element={<Data />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

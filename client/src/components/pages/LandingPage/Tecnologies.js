@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { SiRabbitmq, SiGrafana, SiReact, SiNextdotjs, SiFastapi, SiInfluxdb} from "react-icons/si";
 import '../../styles/styles.css'
 

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 .flex {
   display: flex;
 }
@@ -26,6 +27,34 @@
 
 .hide {
   display: none;
+}
+
+.inputStyle {
+  border: 0;
+  border-bottom: 2px solid #34313D;
+}
+
+.inputStyle:focus, .inputStyle:focus, .inputStyle[type]:focus, .inputStyle:hover {
+  outline: 0 none;
+  border-bottom: 2px solid #0303B5;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #34313D;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 .landingPage .main {
@@ -174,6 +203,43 @@
   background-color: #F0F0F0;
   color: #34313D;
   border: 3px solid #b6b3b3;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.NewAquarium {
+  height: 100vh;
+  width: 100vw;
+}
+
+.selecItem__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0303B5;
+  color: #F0F0F0;
+  position: relative;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+  font-size: 25px;
+}
+.selecItem__button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  color: #0303B5;
+  background-color: transparent;
+  position: relative;
+  top: -12px;
+  margin: 2px 0px 2px 20px;
+  font-size: 25px;
+}
+.selecItem__button:hover {
+  background-color: #0303B5;
+  color: #F0F0F0;
+  border: none;
   cursor: -webkit-grab;
   cursor: grab;
 }

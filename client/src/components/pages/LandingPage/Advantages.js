@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '../../styles/styles.css'
 import { FaTemperatureHigh, FaFish} from 'react-icons/fa';
 import { BsFileBarGraphFill } from "react-icons/bs";

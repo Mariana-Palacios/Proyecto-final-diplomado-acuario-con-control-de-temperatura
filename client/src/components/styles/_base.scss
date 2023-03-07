@@ -1,3 +1,4 @@
+@import './variables';
 
 .flex{
     display: flex;
@@ -27,3 +28,35 @@
 .hide{
     display: none;
 }
+
+//input text style
+
+.inputStyle{
+    border: 0;
+    border-bottom: 2px solid $black;
+}
+ 
+.inputStyle:focus, .inputStyle:focus, .inputStyle[type]:focus, .inputStyle:hover{
+    outline: 0 none;
+    border-bottom: 2px solid $dark-blue;
+}
+
+// box and buttun changer
+
+.box{
+    height: 50px;
+    width: 50px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
