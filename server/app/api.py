@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from model import Item
+
 app = FastAPI()
 
 origins = [
@@ -25,12 +27,8 @@ async def read_root() -> dict:
 @app.post("/")
 async def create_item(item: Item):
     return {
-        "data": { "Todo added." }
-    }
-
-@app.post("/todo", tags=["todos"])
-async def add_todo(todo: dict) -> dict:
-    todos.append(todo)
-    return {
+        "body":{
+            item
+        },
         "data": { "Todo added." }
     }

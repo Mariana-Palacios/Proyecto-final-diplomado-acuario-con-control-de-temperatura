@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-
+import axios from 'axios';
 
 const ApiContext = React.createContext({
     measuraments: [],
@@ -7,18 +7,13 @@ const ApiContext = React.createContext({
     fetchApi: () => {}
 })
   
-function handleSubmit(addNewApiValue, apiPathName ) {
-    const {addApiValue, fetchApi} = React.useContext(ApiContext)
-    
-    const newApiValue = {
-        apiPathName: addNewApiValue
-    }
+function handleSubmit(addNewApiValue, apiPathName, event ) {
+    event.preventDefault(); // prevent form submission
+    //const {addApiValue, fetchApi} = React.useContext(ApiContext)
+    axios.post(`http://localhost:8000/${apiPathName}`, addNewApiValue)
+        .then(res => console.log(res))
+        
 
-    fetch(`http://localhost:8000/${apiPathName}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newApiValue)
-    }).then(fetchApi)
 }
 export default handleSubmit
 

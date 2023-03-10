@@ -1,7 +1,11 @@
 from pydantic import BaseModel
 
 class Item(BaseModel):
-    id: str
-    description: str | None = None
-    price: float
-    tax: float | None = None
+    id: int
+    time: int 
+    temperature: int
+    fish: int | None = None
+    plant: int | None = None
+    other: int | None = None
+
+# ['time', 'temperature', 'fish', 'plant', 'turtle']

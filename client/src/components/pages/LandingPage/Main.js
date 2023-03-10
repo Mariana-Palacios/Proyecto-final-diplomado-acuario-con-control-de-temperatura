@@ -2,12 +2,15 @@ import React from 'react';
 
 import { Outlet, Link } from "react-router-dom";
 
+import GetData from '../../utils/GetData';
+
 import '../../styles/styles.css'
 import logo from './logo.svg'
 
 const Main = () => {
   return (
     <main className="main">
+      <GetData apiPathName='' />
       <div className='text flex flex-j-c flex-a-i flex-f-d-c'>
         <img
           src={logo}
