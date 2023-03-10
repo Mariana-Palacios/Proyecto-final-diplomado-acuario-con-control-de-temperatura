@@ -2,26 +2,17 @@ import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
 const GetData = (apiPathName) => {
-    const [result, setResult] = useState(null)
-    const getData = async ( ) => {
-        //const {addApiValue, fetchApi} = React.useContext(ApiContext)
-        try{
-            let res = axios.get(`http://127.0.0.1:8000/`)
-            let newResult = res.data
-            setResult(newResult)
-        } catch(e){
-            console.log(e)
-        }
-    }
-    useEffect(()=>{
-        getData()
-        console.log(result)
-    }, [])
-    return(
-        <div>
-            {result}
-        </div>
-    )
+    const [post, setPost] = React.useState(null);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000${apiPathName}`).then((response) => {
+        setPost(response.data);
+        });
+    }, []);
+
+    if (!post) return null;
+
+    return post
 }
 
 export default GetData

@@ -10,7 +10,7 @@ import { RxTriangleUp, RxTriangleDown } from 'react-icons/rx';
 
 // Functions
 import SelectionItem from '../../../utils/SelectionItem';
-import handleSubmit from '../../../utils/handleSubmit';
+import handleSubmit from '../../../utils/handleRequest';
 
 //icons
 const iconLogo = [
