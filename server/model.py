@@ -1,11 +1,26 @@
 from pydantic import BaseModel
+#from typing import List,Dict,Optional
+from typing import Dict
+#from datetime import datetime
 
-class Item(BaseModel):
-    id: int
-    time: int 
-    temperature: int
-    fish: int | None = None
-    plant: int | None = None
-    other: int | None = None
+class WritingData(BaseModel):
+    parameters: Dict[str, int]
 
-# ['time', 'temperature', 'fish', 'plant', 'turtle']
+class ReadingData(BaseModel):
+    parameters: Dict[str, int]
+
+'''
+class WritingData(BaseModel):
+    bucket_name: str
+    measurement: str
+    tag: Dict[str,str]
+    field: Dict[str,float]
+    timestamp: Optional[datetime] = None
+
+class ReadingData(BaseModel):
+    bucket_name: str
+    time_interval: int
+    measureament_name: str
+    tag: Dict[str,str]
+    field: List[str]
+'''

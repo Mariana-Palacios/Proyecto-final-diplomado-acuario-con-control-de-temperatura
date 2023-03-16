@@ -1,16 +1,17 @@
-#import uvicorn
-
-
-'''if __name__ == "__main__":
-    uvicorn.run("app.api:app", host="0.0.0.0", port=8000, reload=True)'''
-
 from fastapi import FastAPI
+import uvicorn
+import yaml
+from yaml.loader import SafeLoader
+from Model.Model import WritingData, ReadingData
+from Database.Database import InfluxDataBase
 from fastapi.middleware.cors import CORSMiddleware
 
-#from model import Item
+#Influx
+Influx = InfluxDataBase(server_URL,token,org,bucket)
 
 app = FastAPI()
 
+#React
 origins = [
     "http://localhost:3000",
     "localhost:3000"
@@ -24,31 +25,17 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
 @app.get("/")
 async def root():
     return ("Welcome to your todo list.")
 
-@app.post("/measuraments")
-async def create_item():
-    return {
-        "data": { "Todo added." }
-    }
+@app.post('/measurament/')
+async def call_writing_influx(parameters: WritingData):
+    Influx.write_data(parameters)
 
+@app.get('/measurament/')
+async def call_reading_influx(parameters: ReadingData):
+    return Influx.read_data(parameters)
 
-'''
-@app.get("/measuraments")
-async def get_item(item: Item):
-    return {
-        "data": { "get added." }
-    }
-'''
-
-'''
-@app.post("/todo", tags=["todos"])
-async def add_todo(todo: dict) -> dict:
-    todos.append(todo)
-    return {
-        "data": { "Todo added." }
-    }
-'''
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=5000, reload=True)

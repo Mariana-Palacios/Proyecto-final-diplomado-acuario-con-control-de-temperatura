@@ -1,0 +1,5 @@
+InfluxDB:
+  server_URL: <URL del servidor InfluxDB>
+  token: <token de acceso de InfluxDB>
+  org: <nombre de la organización en InfluxDB>
+  bucket: 
