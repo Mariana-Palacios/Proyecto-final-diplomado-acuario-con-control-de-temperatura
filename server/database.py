@@ -24,4 +24,6 @@ class InfluxDataBase:
         self.write_db('parameters', 'other', data["other"])
         self.write_db('parameters', 'temperature', data["temperature"])
         self.write_db('parameters', 'plant', data["plant"])
-        
+
+    def read_data(self,data):
+        return {'time': data["time"],'fish': data["fish"], 'other': data["other"], 'temperature': data["temperature"], 'plant': data["plant"]}
