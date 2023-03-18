@@ -1,0 +1,14 @@
+.NewAquarium{
+    height: 100vh;
+    width: 100vw;
+    //@include Appear(appear, 1s);
+    .btn{
+        @include ImageMovement(hola, $dark-blue, pink, 10s);
+        @include button($red, $gray, 25px, 15px, 15px, 40px);
+    }
+    .btn:hover{
+        @include ImageMovement(ImageMovement, $dark-blue, pink, 1s);
+        @include buttonHover($blue,$gray, $dark-blue)
+    }
+}
+

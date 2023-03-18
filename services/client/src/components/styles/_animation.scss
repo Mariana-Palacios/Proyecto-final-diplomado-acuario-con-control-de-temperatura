@@ -1,0 +1,30 @@
+
+@mixin Appear($animationName, $time){
+    @keyframes #{$animationName}{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    animation: #{$animationName} $time ease-in-out forwards;
+}
+
+@mixin ImageMovement($animationName, $mainColor, $secondColor, $time){
+    @keyframes #{$animationName}{
+        0%{
+            background-color: $secondColor;
+            transform: rotate(0);
+
+        }
+        50%{
+            background-color: $mainColor;
+            transform: rotate(-90deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    animation: #{$animationName} $time ease-in-out infinite;  
+}

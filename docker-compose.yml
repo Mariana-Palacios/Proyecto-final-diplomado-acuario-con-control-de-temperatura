@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  database:
+    container_name: influxdb
+    image: influxdb
+    restart: always
+    ports:
+      - "8086:8086"
+    build:
+      context: .
+      dockerfile: services/server/docker/influx/Dockerfile
+    env_file:
+      - services/server/docker/influx/env_variables
+    networks:
+      default:
+        aliases:
+          - influxdb
