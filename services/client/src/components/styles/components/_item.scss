@@ -1,0 +1,21 @@
+.Item{
+    @include Appear(appear, 0.5s);
+    margin: 0px 40px;
+    &__icon{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $dark-blue;
+        color: $gray;
+        position: relative;
+        top: 20px;
+        right: 20px;
+        text-align: center;
+        font-size: 25px;
+        &-1{
+            top: 0px;
+            right: 0px;
+            margin: 0px 10px;
+        }
+    }
+}

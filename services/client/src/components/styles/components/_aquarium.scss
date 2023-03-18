@@ -1,0 +1,22 @@
+.Aquarium{
+    &__temperature,&__graphics{
+        border: 1px solid $black;
+        border-radius: 10px;
+        text-align: center;
+    }
+    &__section{
+        margin:30px;
+    }
+    &__temperature{
+        height: 300px;
+        width: 500px;
+        &-h3{
+            font-size: 80px;
+        }
+    }
+    &__graphics{
+        height: 600px;
+        width: 500px;
+    }   
+}
+

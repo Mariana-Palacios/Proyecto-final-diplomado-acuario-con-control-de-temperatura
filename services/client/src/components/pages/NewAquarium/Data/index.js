@@ -6,11 +6,9 @@ import axios from 'axios';
 import { RiPlantFill, RiTimerLine } from 'react-icons/ri';
 import { FaFish, FaTemperatureLow } from 'react-icons/fa';
 import { GiTurtle } from 'react-icons/gi';
-import { RxTriangleUp, RxTriangleDown } from 'react-icons/rx';
 
-// Functions
+// Components
 import SelectionItem from '../../../utils/SelectionItem';
-import handleRequest from '../../../utils/handleRequest';
 
 //icons
 const iconLogo = [
@@ -67,7 +65,10 @@ const ShowData = () => {
           decrease={(e)=>increaseDecreaseButton(index, false, e)}
         />
       ))}
-      <button  className='btn'>Next</button>
+      <div className='flex'>
+        <Link to="/NewAquarium/Name"><button className='btn'>Back</button></Link>
+        <Link to="/Aquarium"><button className='btn'>Next</button></Link>
+      </div>
       {console.log(post)}
     </form>
   );

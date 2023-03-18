@@ -1,13 +1,10 @@
 from fastapi import FastAPI
 import uvicorn
-from typing import Union
-from Model import ReadingData, HomeParameters,AquariumParameters
-from Database import InfluxDataBase
+#from typing import Union
+from Model import AquariumParameters, AquariumParametersIn
+from Database import database, Aquarium_data
 from fastapi.middleware.cors import CORSMiddleware
-
-#Influx
-
-Influx = InfluxDataBase()
+from typing import List
 
 app = FastAPI()
 
@@ -27,19 +24,28 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+@app.on_event("startup")
+async def startup():
+    await database.connect()
+
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
+
 @app.get("/")
 async def root():
     return ("Welcome to your todo list.")
 
-#@app.post('/measurament/')
-#async def call_writing_influx(parameters: WritingData):
-#    Influx.write_measuraments(parameters)
+@app.get('/measurament/')
+async def call_reading_influx():    
+    query = Aquarium_data.select()
+    return await database.fetch_all(query)
 
-
-@app.post('/measurament/')
-async def call_reading_influx(parameter: AquariumParameters):
-    Influx.write_measuraments(parameter.dict())
-    return parameter.dict()
+@app.post('/measurament/') 
+async def call_write_measuraments(parameter: AquariumParametersIn):
+    query = Aquarium_data.insert().values(Temperature=parameter.temperature, Fish=parameter.fish, Other=parameter.other, Plant=parameter.plant)
+    last_record_id = await database.execute(query)
+    return {**parameter.dict(), "id": last_record_id}
 
 if __name__ == "__main__":
     uvicorn.run("Main:app", host="0.0.0.0", port=8000, reload=True)

@@ -5,7 +5,10 @@ const NewAquarium = () => {
     return (
       <div className='NewAquarium flex flex-j-c flex-a-i flex-f-d-c'>
         <h1>Let's get started</h1>
-        <Link to="/NewAquarium/Name"><button>Next</button></Link>
+        <div className='flex'>
+          <Link to="/"><button className='btn'>Back</button></Link>
+          <Link to="/NewAquarium/Name"><button className='btn'>Next</button></Link>
+        </div>
         <Outlet/>
       </div>
     );

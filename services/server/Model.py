@@ -1,17 +1,16 @@
 from pydantic import BaseModel
-from typing import Dict
+#from typing import Dict
 
 class AquariumParameters(BaseModel):
+    id: int
     temperature: int
     fish: int
-    plant: int
     other: int 
+    plant: int
 
-class AnotherModel(BaseModel):
-    algo: str
 
-class HomeParameters(AquariumParameters, AnotherModel):
-    pass
-    
-class ReadingData(BaseModel):
-    parameters: Dict[str, int]
+class AquariumParametersIn(BaseModel):
+    temperature: int
+    fish: int
+    other: int 
+    plant: int

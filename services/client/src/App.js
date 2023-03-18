@@ -8,6 +8,8 @@ import NewAquarium from './components/pages/NewAquarium';
 import Name from './components/pages/NewAquarium/Name/index';
 import Information from './components/pages/NewAquarium/Information';
 import Data from './components/pages/NewAquarium/Data';
+//Aquarium
+import Aquarium from './components/pages/Aquarium';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
             <Route path="/NewAquarium/Information" element={<Information />}/>
             <Route path="/NewAquarium/Data" element={<Data />}/>
           </Route>
+          <Route path="/Aquarium" element={<Aquarium />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -22,7 +22,8 @@
 
 .inputStyle {
   border: 0;
-  border-bottom: 2px solid #34313D; }
+  border-bottom: 2px solid #34313D;
+  text-align: center; }
 
 .inputStyle:focus, .inputStyle:focus, .inputStyle[type]:focus, .inputStyle:hover {
   outline: 0 none;
@@ -33,7 +34,12 @@
   width: 50px;
   border: 1px solid #34313D;
   border-radius: 10px;
-  text-align: center; }
+  text-align: center;
+  font-size: 16px; }
+
+.box-active {
+  font-weight: bold;
+  color: #4040FB; }
 
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
@@ -168,40 +174,51 @@ input[type=number] {
     color: #34313D;
     cursor: grab; }
 
-.NewAquarium {
+.NewAquarium, .Aquarium {
   height: 100vh;
-  width: 100vw; }
-  .NewAquarium .btn {
-    animation: hola 10s ease-in-out infinite;
+  width: 100vw;
+  padding: 10%;
+  animation: appear 0.5s ease-in-out forwards; }
+  .NewAquarium__Data-p, .Aquarium__Data-p {
+    color: #FF0000;
+    font-size: 24px; }
+  .NewAquarium__Data-img, .Aquarium__Data-img {
+    height: auto;
+    width: 250px; }
+@keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+  .NewAquarium .btn, .Aquarium .btn {
     background: #FF0000;
     color: #F0F0F0;
-    padding: 15px 15px;
+    padding: 5px 15px;
     border-radius: 40px;
-    font-size: 25px;
-    border-color: transparent; }
-@keyframes hola {
-  0% {
-    background-color: pink;
-    transform: rotate(0); }
-  50% {
-    background-color: #0303B5;
-    transform: rotate(-90deg); }
-  100% {
-    transform: rotate(0deg); } }
-  .NewAquarium .btn:hover {
-    animation: ImageMovement 1s ease-in-out infinite;
+    font-size: 18px;
+    border-color: transparent;
+    font-weight: bolder;
+    margin: 20px; }
+  .NewAquarium .btn:hover, .Aquarium .btn:hover {
     background-color: #0404E2;
     color: #F0F0F0;
     cursor: grab; }
-@keyframes ImageMovement {
-  0% {
-    background-color: pink;
-    transform: rotate(0); }
-  50% {
-    background-color: #0303B5;
-    transform: rotate(-90deg); }
-  100% {
-    transform: rotate(0deg); } }
+
+.Aquarium__temperature, .Aquarium__graphics {
+  border: 1px solid #34313D;
+  border-radius: 10px;
+  text-align: center; }
+.Aquarium__section {
+  margin: 30px; }
+.Aquarium__temperature {
+  height: 300px;
+  width: 500px; }
+  .Aquarium__temperature-h3 {
+    font-size: 80px; }
+.Aquarium__graphics {
+  height: 600px;
+  width: 500px; }
+
 .selecItem__icon {
   width: 40px;
   height: 40px;
@@ -213,6 +230,18 @@ input[type=number] {
   right: 20px;
   text-align: center;
   font-size: 25px; }
+  .selecItem__icon-active {
+    top: 15px;
+    animation: ImageMovement 0.5s ease-in-out infinite; }
+@keyframes ImageMovement {
+  0% {
+    background-color: #4040FB;
+    transform: rotate(0); }
+  50% {
+    background-color: #0303B5;
+    transform: rotate(-45deg); }
+  100% {
+    transform: rotate(0deg); } }
 .selecItem__button {
   width: 40px;
   height: 40px;
@@ -280,6 +309,30 @@ input[type=number] {
     .nav__logo .img {
       max-width: 100%;
       max-height: 100%; }
+
+.Item {
+  animation: appear 0.5s ease-in-out forwards;
+  margin: 0px 40px; }
+@keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+  .Item__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0303B5;
+    color: #F0F0F0;
+    position: relative;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+    font-size: 25px; }
+    .Item__icon-1 {
+      top: 0px;
+      right: 0px;
+      margin: 0px 10px; }
 
 * {
   margin: 0;

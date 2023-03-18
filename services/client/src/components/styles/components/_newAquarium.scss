@@ -1,13 +1,24 @@
-.NewAquarium{
+.NewAquarium, .Aquarium{
     height: 100vh;
     width: 100vw;
-    //@include Appear(appear, 1s);
+    padding: 10%;
+    &__Data{
+        &-p{
+            color: $red;
+            font-size: 24px;
+        }
+        &-img{
+            height: auto;
+            width: 250px
+        }
+    }
+    @include Appear(appear, 0.5s);
     .btn{
-        @include ImageMovement(hola, $dark-blue, pink, 10s);
-        @include button($red, $gray, 25px, 15px, 15px, 40px);
+        @include button($red, $gray, 18px, 5px, 15px, 40px);
+        font-weight: bolder;
+        margin:20px;
     }
     .btn:hover{
-        @include ImageMovement(ImageMovement, $dark-blue, pink, 1s);
         @include buttonHover($blue,$gray, $dark-blue)
     }
 }

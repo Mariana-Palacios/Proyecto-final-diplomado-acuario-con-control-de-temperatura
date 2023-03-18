@@ -34,6 +34,7 @@
 .inputStyle{
     border: 0;
     border-bottom: 2px solid $black;
+    text-align: center;
 }
  
 .inputStyle:focus, .inputStyle:focus, .inputStyle[type]:focus, .inputStyle:hover{
@@ -49,6 +50,11 @@
     border: 1px solid $black;
     border-radius: 10px;
     text-align: center;
+    font-size: 16px;
+}
+.box-active{
+    font-weight: bold;
+    color: $purple;
 }
 
 input[type=number]::-webkit-outer-spin-button,
