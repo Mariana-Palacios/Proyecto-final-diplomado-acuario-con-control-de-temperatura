@@ -52,7 +52,41 @@ input[type=number] {
 
 .landingPage .main {
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
+  position: relative; }
+  .landingPage .main .wave {
+    position: absolute;
+    right: 0;
+    height: auto; }
+    .landingPage .main .wave-1 {
+      animation: wave1 14s ease-in-out infinite; }
+@keyframes wave1 {
+  0% {
+    width: 50vw; }
+  50% {
+    width: 45vw; }
+  100% {
+    width: 50vw; } }
+    .landingPage .main .wave-2 {
+      animation: wave2 12s ease-in-out infinite; }
+@keyframes wave2 {
+  0% {
+    width: 40vw; }
+  50% {
+    width: 42vw; }
+  100% {
+    width: 40vw; } }
+    .landingPage .main .wave-3 {
+      animation: wave3 17s ease-in-out infinite; }
+@keyframes wave3 {
+  0% {
+    width: 30vw; }
+  50% {
+    width: 25vw; }
+  100% {
+    width: 30vw; } }
   .landingPage .main .text {
     position: absolute;
     left: 20%;
@@ -173,23 +207,104 @@ input[type=number] {
     background-color: #F0F0F0;
     color: #34313D;
     cursor: grab; }
+@media screen and (max-width: 600px) {
+  .landingPage .main .text {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 80%; }
+    .landingPage .main .text__title {
+      margin: 25px 0px 60px 0px;
+      font-size: 18px;
+      text-align: center; }
+    .landingPage .main .text__button {
+      background: #FF0000;
+      color: #F0F0F0;
+      padding: 15px 15px;
+      border-radius: 40px;
+      font-size: 16px;
+      border-color: transparent; }
+    .landingPage .main .text .bigLogo {
+      height: auto;
+      width: 70%; }
+  .landingPage .landingPageWave {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: auto; }
+  .landingPage .technologies {
+    height: 180px; }
+    .landingPage .technologies__text {
+      font-size: 24px;
+      margin: 30px; }
+    .landingPage .technologies__icon {
+      margin: 0px 30px;
+      font-size: 30px; }
+  .landingPage .adventages {
+    flex-direction: column;
+    padding: 5%;
+    width: 100vw !important;
+    height: 100vh; }
+    .landingPage .adventages__title {
+      top: 5%;
+      font-size: 24px; }
+    .landingPage .adventages__backgroundLine {
+      width: 10px;
+      height: 70%; }
+    .landingPage .adventages .adventage {
+      margin: 0% 2%;
+      text-align: center;
+      flex-wrap: wrap;
+      background: #F0F0F0;
+      color: #34313D;
+      padding: 5px 5px;
+      border-radius: 20px;
+      font-size: 16px;
+      border-color: transparent; }
+      .landingPage .adventages .adventage-1 {
+        top: 0; }
+      .landingPage .adventages .adventage-3 {
+        top: 0; }
+      .landingPage .adventages .adventage__icon {
+        width: 60px;
+        height: 60px;
+        background-color: #0303B5;
+        color: #F0F0F0;
+        font-size: 30px; }
+  .landingPage .aboutTheTeam {
+    height: 100px;
+    width: 100vw;
+    position: relative;
+    background-color: #0303B5; }
+    .landingPage .aboutTheTeam__img {
+      width: 100vw;
+      height: 100%; }
+    .landingPage .aboutTheTeam__button {
+      background: #FF0000;
+      color: #F0F0F0;
+      padding: 15px 15px;
+      border-radius: 40px;
+      font-size: 18px;
+      border-color: transparent; }
+    .landingPage .aboutTheTeam__button:hover {
+      background-color: #F0F0F0;
+      color: #34313D;
+      cursor: grab; } }
 
 .NewAquarium, .Aquarium {
-  height: 100vh;
-  width: 100vw;
-  padding: 10%;
-  animation: appear 0.5s ease-in-out forwards; }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
   .NewAquarium__Data-p, .Aquarium__Data-p {
     color: #FF0000;
     font-size: 24px; }
   .NewAquarium__Data-img, .Aquarium__Data-img {
     height: auto;
     width: 250px; }
-@keyframes appear {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
   .NewAquarium .btn, .Aquarium .btn {
     background: #FF0000;
     color: #F0F0F0;
@@ -203,7 +318,86 @@ input[type=number] {
     background-color: #0404E2;
     color: #F0F0F0;
     cursor: grab; }
+  @media screen and (max-width: 600px) {
+    .NewAquarium__Data, .Aquarium__Data {
+      width: 70%; }
+      .NewAquarium__Data .inputStyle, .Aquarium__Data .inputStyle {
+        width: 100%; }
+      .NewAquarium__Data-p, .Aquarium__Data-p {
+        color: #FF0000;
+        font-size: 16px; }
+      .NewAquarium__Data-img, .Aquarium__Data-img {
+        width: 70%; } }
 
+.NewAquarium {
+  overflow: hidden; }
+
+.NewAquariumMain {
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh; }
+  .NewAquariumMain .wave {
+    position: absolute;
+    z-index: 10;
+    background-color: #2FF4F4;
+    width: 100vw;
+    bottom: 0; }
+  .NewAquariumMain .wave-stop {
+    height: 2vw;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; }
+  .NewAquariumMain .wave-changer {
+    animation: bigWave 1s ease-in-out forwards; }
+@keyframes bigWave {
+  0% {
+    height: 2vw;
+    bottom: 0;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%; }
+  25% {
+    height: calc($height/2); }
+  50% {
+    bottom: 0;
+    height: 100vh; }
+  75% {
+    height: calc($height/2); }
+  100% {
+    height: 2vw;
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; } }
+  .NewAquariumMain .corner {
+    position: absolute;
+    animation: corner2 5s ease-in-out infinite;
+    height: auto; }
+@keyframes corner2 {
+  0% {
+    width: 20vw; }
+  50% {
+    width: 21vw; }
+  100% {
+    width: 20vw; } }
+    .NewAquariumMain .corner-1 {
+      left: 0;
+      bottom: 0; }
+    .NewAquariumMain .corner-2 {
+      right: 0;
+      top: 0;
+      transform: rotate(-180deg); }
+  @media screen and (max-width: 600px) {
+    .NewAquariumMain .corner {
+      animation: corner2 5s ease-in-out infinite; }
+    @keyframes corner2 {
+      0% {
+        width: 30vw; }
+      50% {
+        width: 33vw; }
+      100% {
+        width: 30vw; } } }
+
+.Aquarium iframe {
+  width: 100% !important;
+  height: 100% !important; }
 .Aquarium__temperature, .Aquarium__graphics {
   border: 1px solid #34313D;
   border-radius: 10px;
@@ -213,11 +407,32 @@ input[type=number] {
 .Aquarium__temperature {
   height: 300px;
   width: 500px; }
-  .Aquarium__temperature-h3 {
-    font-size: 80px; }
 .Aquarium__graphics {
-  height: 600px;
-  width: 500px; }
+  height: auto;
+  width: 100%; }
+@media screen and (max-width: 600px) {
+  .Aquarium {
+    overflow-x: hidden; }
+    .Aquarium .Item {
+      margin: 0px 20px; }
+    .Aquarium .container {
+      flex-direction: column; }
+    .Aquarium .btn {
+      background: #FF0000;
+      color: #F0F0F0;
+      padding: 5px 15px;
+      border-radius: 40px;
+      font-size: 14px;
+      border-color: transparent;
+      font-weight: bolder;
+      margin: 5px; }
+    .Aquarium__section {
+      width: 100%;
+      margin: none; }
+    .Aquarium__temperature, .Aquarium__graphics {
+      padding: 5%;
+      height: auto;
+      width: 80%; } }
 
 .selecItem__icon {
   width: 40px;

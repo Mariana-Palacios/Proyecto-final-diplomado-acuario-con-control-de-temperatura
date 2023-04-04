@@ -1,7 +1,9 @@
 .NewAquarium, .Aquarium{
-    height: 100vh;
-    width: 100vw;
-    padding: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
     &__Data{
         &-p{
             color: $red;
@@ -9,10 +11,10 @@
         }
         &-img{
             height: auto;
-            width: 250px
+            width: 250px;
         }
     }
-    @include Appear(appear, 0.5s);
+    //@include Appear(appear, 0.5s);
     .btn{
         @include button($red, $gray, 18px, 5px, 15px, 40px);
         font-weight: bolder;
@@ -20,6 +22,66 @@
     }
     .btn:hover{
         @include buttonHover($blue,$gray, $dark-blue)
+    }
+    @media screen and (max-width: 600px) {
+        &__Data{
+            width: 70%;
+            .inputStyle{
+                width: 100%;
+            }
+            &-p{
+                color: $red;
+                font-size: 16px;
+            }
+            &-img{
+                width: 70%;
+            }
+        }
+    }
+}
+
+.NewAquarium{
+    overflow: hidden;
+}
+
+.NewAquariumMain{
+    overflow: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
+    .wave{
+        position: absolute;
+        z-index: 10;
+        background-color: #2FF4F4;
+        width: 100vw;
+        bottom: 0;
+    }
+    .wave-stop{
+        height: 2vw;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+    .wave-changer{
+        @include waveMove(bigWave, 100vh, 1s)
+    }
+    .corner{
+        position: absolute;
+        @include wave(corner2, 20vw, 21vw, 5s);
+        //width: 20vw;
+        height: auto;
+        &-1{
+            left: 0;
+            bottom: 0;
+        }
+        &-2{
+            right: 0;
+            top: 0;
+            transform: rotate(-180deg);
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .corner{
+            @include wave(corner2, 30vw, 33vw, 5s);
+        }
     }
 }
 

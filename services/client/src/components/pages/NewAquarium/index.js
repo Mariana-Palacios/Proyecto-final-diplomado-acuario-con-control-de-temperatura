@@ -1,15 +1,41 @@
-import React from 'react';
-import { Outlet, Link } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+
+import corner from './corner.svg';
+
+//componentes
+import Information from './Information';
+import Data from './Data';
+import Name from './Name';
 
 const NewAquarium = () => {
+    const [stateChanger, setStateChanger] = useState(0) 
+    const [classChanger, setClassChanger] = useState('wave-stop') 
+    const handleClick = (increaseDecrease) => {
+      setClassChanger('wave-changer');
+      setTimeout(() => {
+        //setClassChanger('');
+        increaseDecrease == true ? setStateChanger(stateChanger + 1): setStateChanger(stateChanger -1)
+        setTimeout(() => {
+          setClassChanger('wave-stop');
+        },1300)
+      }, 600);
+    };
+    
+      setTimeout(() => {}, 1500)   
     return (
-      <div className='NewAquarium flex flex-j-c flex-a-i flex-f-d-c'>
-        <h1>Let's get started</h1>
-        <div className='flex'>
-          <Link to="/"><button className='btn'>Back</button></Link>
-          <Link to="/NewAquarium/Name"><button className='btn'>Next</button></Link>
-        </div>
-        <Outlet/>
+      <div className='NewAquariumMain flex flex-j-c flex-a-i '>
+        <div className={`wave ${classChanger} `}></div>
+        <img
+          src={corner}
+          alt='corner'
+          className='corner corner-1'
+        />
+        {stateChanger == 0? <Information increaseValue={()=>handleClick(true)}/>:stateChanger == 1 ? <Name increaseValue={()=>handleClick(true)} decreaseValue={()=>handleClick(false)} />: <Data decreaseValue={()=>handleClick(false)}/>}
+        <img
+          src={corner}
+          alt='corner'
+          className='corner corner-2'
+        />
       </div>
     );
 }

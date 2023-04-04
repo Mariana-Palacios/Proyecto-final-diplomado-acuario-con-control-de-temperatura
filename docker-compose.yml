@@ -5,7 +5,7 @@ services:
     image: influxdb
     restart: always
     ports:
-      - "8086:8086"
+      - '8086:8086'
     build:
       context: .
       dockerfile: services/server/docker/influx/Dockerfile
@@ -15,3 +15,46 @@ services:
       default:
         aliases:
           - influxdb
+
+  broker: 
+    container_name: rabbit
+    image: rabbit_image
+    restart: always
+    ports:
+      - '1883:1883'
+      - '15672:15672'
+      - '5672:5672'
+    build:
+      context: .
+      dockerfile: services/server/docker/rabbit/Dockerfile
+    networks:
+      default:
+        aliases:
+          - rabbit
+
+  visualizador:
+    container_name: grafana
+    image: grafana_image
+    restart: always
+    ports:
+      - '3001:3000'
+    build:
+      context: .
+      dockerfile: services/server/docker/grafana/Dockerfile
+    networks:
+      default:
+        aliases:
+          - grafana
+
+  telegraf:
+    container_name: telegraf
+    image: telegraf_image
+    restart: always
+    build:
+      context: .
+      dockerfile: services/server/docker/telegraf/Dockerfile
+    depends_on:
+      - database
+      - broker
+    links:
+      - database

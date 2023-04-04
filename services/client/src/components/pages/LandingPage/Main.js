@@ -5,7 +5,14 @@ import { Outlet, Link } from "react-router-dom";
 //import handleRequest from '../../utils/handleRequest';
 
 import '../../styles/styles.css'
+
+//images
+
 import logo from './logo.svg'
+import wave1 from './wave1.svg'
+import wave2 from './wave2.svg'
+import wave3 from './wave3.svg'
+//import background from './background.svg'
 
 const Main = () => {
   return (
@@ -21,6 +28,21 @@ const Main = () => {
         <h1 className='text__title'>Maintain the perfect aquarium <br/>temperature with ease.</h1>
         <Link to="/NewAquarium"><button className='text__button'>Get started</button></Link>
       </div>
+      <img 
+        src={wave1}
+        alt='wave1'
+        className='wave wave-1' 
+      />
+      <img 
+        src={wave2}
+        alt='wave2'
+        className='wave wave-2' 
+      />
+      <img 
+        src={wave3}
+        alt='wave3'
+        className='wave wave-3' 
+      />
       <Outlet />
     </main>
   )

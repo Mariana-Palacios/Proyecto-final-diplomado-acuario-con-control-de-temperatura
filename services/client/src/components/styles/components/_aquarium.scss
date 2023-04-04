@@ -1,4 +1,8 @@
 .Aquarium{
+    iframe {
+        width: 100% !important;
+        height: 100% !important;
+    }
     &__temperature,&__graphics{
         border: 1px solid $black;
         border-radius: 10px;
@@ -10,13 +14,33 @@
     &__temperature{
         height: 300px;
         width: 500px;
-        &-h3{
-            font-size: 80px;
-        }
     }
     &__graphics{
-        height: 600px;
-        width: 500px;
-    }   
+        height: auto;
+        width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+        overflow-x: hidden;
+        .Item{
+            margin: 0px 20px;
+        }
+        .container{
+            flex-direction: column;
+        }
+        .btn{
+            @include button($red, $gray, 14px, 5px, 15px, 40px);
+            font-weight: bolder;
+            margin:5px;
+        }
+        &__section{
+            width: 100%;
+            margin: none;
+        }
+        &__temperature, &__graphics{
+            padding: 5%;
+            height: auto;
+            width: 80%;
+        }
+    }
 }
 
