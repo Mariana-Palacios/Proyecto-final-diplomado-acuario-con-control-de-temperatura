@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { Outlet, Link } from "react-router-dom";
 import axios from 'axios';
+import { AiOutlineMail } from 'react-icons/ai';
+import { IoFishOutline } from 'react-icons/io';
 
 //images
 import newAquarium from './newAquarium.svg';
-import corner from './corner.svg';
 
 const Name = ({increaseValue, decreaseValue}) => {
   const [nombreAcuario, setNombreAcuario] = useState('')
@@ -32,6 +33,7 @@ const Name = ({increaseValue, decreaseValue}) => {
 
   }  
 
+  
   return (
     <form onSubmit={(e)=>createPost(e)} className='NewAquarium NewAquarium__Data flex flex-j-s-b flex-a-i flex-f-d-c'>
       <h1>New aquarium</h1>
@@ -49,13 +51,16 @@ const Name = ({increaseValue, decreaseValue}) => {
         onChange={(e)=>handleInputChange(true,e)}
       />
       <p className='NewAquarium__Data-p'>Type your email</p>
-      <input
-        type="email"
-        id='2'
-        name="input-numerico"
-        className='inputStyle'
-        onChange={(e)=>handleInputChange(false,e)}
-      />
+      <div className='flex'>
+        <AiOutlineMail />
+        <input
+          type="email"
+          id='2'
+          name="input-numerico"
+          className='inputStyle'
+          onChange={(e)=>handleInputChange(false,e)}
+        />
+      </div>
       <div className='flex'>
         <button onClick={decreaseValue} className='btn'>Back</button>
         <button onClick={increaseValue} className='btn'>Next</button>

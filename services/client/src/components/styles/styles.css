@@ -243,10 +243,9 @@ input[type=number] {
       margin: 0px 30px;
       font-size: 30px; }
   .landingPage .adventages {
+    height: auto;
     flex-direction: column;
-    padding: 5%;
-    width: 100vw !important;
-    height: 100vh; }
+    padding: 120px 5% 60px 5%; }
     .landingPage .adventages__title {
       top: 5%;
       font-size: 24px; }
@@ -254,6 +253,8 @@ input[type=number] {
       width: 10px;
       height: 70%; }
     .landingPage .adventages .adventage {
+      width: 100% !important;
+      height: 300px;
       margin: 0% 2%;
       text-align: center;
       flex-wrap: wrap;
@@ -262,16 +263,16 @@ input[type=number] {
       padding: 5px 5px;
       border-radius: 20px;
       font-size: 16px;
-      border-color: transparent; }
+      border-color: transparent;
+      margin: 25px 0; }
       .landingPage .adventages .adventage-1 {
         top: 0; }
       .landingPage .adventages .adventage-3 {
         top: 0; }
       .landingPage .adventages .adventage__icon {
+        top: -20px;
         width: 60px;
         height: 60px;
-        background-color: #0303B5;
-        color: #F0F0F0;
         font-size: 30px; }
   .landingPage .aboutTheTeam {
     height: 100px;
@@ -322,7 +323,7 @@ input[type=number] {
     .NewAquarium__Data, .Aquarium__Data {
       width: 70%; }
       .NewAquarium__Data .inputStyle, .Aquarium__Data .inputStyle {
-        width: 100%; }
+        width: 80%; }
       .NewAquarium__Data-p, .Aquarium__Data-p {
         color: #FF0000;
         font-size: 16px; }
