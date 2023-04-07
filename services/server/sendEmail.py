@@ -19,12 +19,12 @@ async def send_email_to_aquarium_user(email_aquarium_user, aquarium_last_data):
     """
     # Define email sender and receiver
     email_sender = 'marianapalaciosam@unimagdalena.edu.co'
-    email_password = ''
+    email_password = 'Termofish'
     while True:
         print(aquarium_last_data["agua"]) 
-        if aquarium_last_data["agua"] > 20:
+        if aquarium_last_data["agua"] > 29:
             print('estoy realizando lo del email')
-            email_receiver = email_aquarium_user
+            email_receiver = email_aquarium_user[-1].gmail
             em = EmailMessage()
             em['From'] = email_sender
             em['To'] = email_receiver
@@ -40,5 +40,5 @@ async def send_email_to_aquarium_user(email_aquarium_user, aquarium_last_data):
                 smtp.login(email_sender, email_password)
                 smtp.sendmail(email_sender, email_receiver, em.as_string())
         await asyncio.sleep(128)
-    print('hola mundo')
+
 

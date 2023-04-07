@@ -44,7 +44,7 @@ const Data = ({decreaseValue}) => {
   const createPut=(e)=> {
     e.preventDefault()
     axios
-      .put(`http://localhost:8000/aquarium_data/`, {'fish':1,'other':2,'plant':3})
+      .put(`http://localhost:8000/aquarium_data/`, valor)
       .then((response) => {
         setPut(response.data);
       });
@@ -65,6 +65,7 @@ const Data = ({decreaseValue}) => {
           decrease={(e)=>increaseDecreaseButton(index, false, e)}
         />
       ))}
+      <button className='btn'>¡Listo!</button>
       <div className='flex'>
         <button onClick={decreaseValue} className='btn'>Back</button>
         <Link to="/Aquarium"><button className='btn'>Next</button></Link>

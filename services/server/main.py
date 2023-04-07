@@ -50,7 +50,8 @@ def aquarium_name_email(aquarium: schemas.Aquarium, db: Session = Depends(get_db
 @app.put("/aquarium_data/")
 def update_aquarium_aquarium(aquarium: schemas.AquariumUpdate, db: Session = Depends(get_db)):
     # await asyncio.sleep(0)
-    return crud.update_aquarium(db=db, aquarium=aquarium)
+    crud.update_aquarium(db=db, aquarium=aquarium)
+    return {'put realizado'}
 
 #GET
 @app.get("/aquarium_data/")
@@ -67,10 +68,8 @@ def get_valores_nxp():
 async def send_messages_every_10_minutes():
     while True:
         # enviar mensajes aquí
-        await sendEmail.send_email_to_aquarium_user('termofishdiplomado@gmail.com',nxpdata.obtener_valores_nxp())
+        await sendEmail.send_email_to_aquarium_user(crud.get_aquarium_data(db=SessionLocal()),nxpdata.obtener_valores_nxp())
         await asyncio.sleep(10)
-
-
 
 
 @app.on_event("startup")
