@@ -45,6 +45,8 @@ const Aquarium = () => {
 
   return (
     <div className='Aquarium flex flex-j-c flex-a-i flex-f-d-c'>
+      {console.log(post[post.length-1]['name'])}
+      {console.log(post)}
       <h1>{post[post.length-1]['name']}<GiFishEscape /></h1>
       <div className='container flex'>
         <section className='flex flex-j-c flex-a-i flex-f-d-c'>

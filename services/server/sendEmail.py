@@ -1,28 +1,44 @@
-import base64
-from email.mime.text import MIMEText
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from requests import HTTPError
-import os
+import smtplib
+import ssl
+from email.message import EmailMessage
+import time 
+import asyncio
 
+async def send_email_to_aquarium_user(email_aquarium_user, aquarium_last_data):
+    # Set the subject and body of the email
+    subject = 'ALERTA: '+ str(aquarium_last_data["agua"]) +'°C ¡temperatura alta!'
+    body = """
+    El medidor de temperatura de agua ha detectado que la temperatura está por encima del rango seguro.
 
-SCOPES = [
-        "https://www.googleapis.com/auth/gmail.send"
-    ]
+    Por favor, toma medidas inmediatas para enfriar el agua y evitar que los peces sufran estrés térmico.
 
-current_dir = os.getcwd()
-flow = InstalledAppFlow.from_client_secrets_file(f'{current_dir}/credentials.json', SCOPES)
-creds = flow.run_local_server(port=0)
+    Recuerda que mantener la temperatura del agua dentro del rango adecuado es esencial para la salud de tus peces.
 
-service = build('gmail', 'v1', credentials=creds)
-message = MIMEText('This is the body of the email')
-message['to'] = 'mpalaciosm2000@gmail.com'
-message['subject'] = 'TermoFish'
-create_message = {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
+    Atentamente,
+    Termo Fish
+    """
+    # Define email sender and receiver
+    email_sender = 'marianapalaciosam@unimagdalena.edu.co'
+    email_password = ''
+    while True:
+        print(aquarium_last_data["agua"]) 
+        if aquarium_last_data["agua"] > 20:
+            print('estoy realizando lo del email')
+            email_receiver = email_aquarium_user
+            em = EmailMessage()
+            em['From'] = email_sender
+            em['To'] = email_receiver
+            em['Subject'] = subject
+            em.set_content(body)
 
-try:
-    message = (service.users().messages().send(userId="me", body=create_message).execute())
-    print(F'sent message to {message} Message Id: {message["id"]}')
-except HTTPError as error:
-    print(F'An error occurred: {error}')
-    message = None
+            # Add SSL (layer of security)
+            context = ssl.create_default_context()
+
+            # Log in and send the email
+            with smtplib.SMTP('smtp.office365.com', 587) as smtp:
+                smtp.starttls(context=context)
+                smtp.login(email_sender, email_password)
+                smtp.sendmail(email_sender, email_receiver, em.as_string())
+        await asyncio.sleep(128)
+    print('hola mundo')
+

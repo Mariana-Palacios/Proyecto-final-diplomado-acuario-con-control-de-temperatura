@@ -4,15 +4,12 @@ from database import SessionLocal
 import models, schemas, nxpdata
 
 #PUT en el Acuario data
-def append_aquarium_data(db: Session, aquarium: schemas.AquariumUpdate):
-    last_record = db.query(models.Aquarium).order_by(models.Aquarium.id.desc()).first().id
-    db_aquarium = db.query(models.Aquarium).filter(models.Aquarium.id == last_record).update({
-        "fish": aquarium.fish,
-        "other": aquarium.other,
-        "plant": aquarium.plant
-    })
+def update_aquarium(db: Session, aquarium: schemas.AquariumUpdate):
+    last_record = db.query(models.Aquarium).order_by(models.Aquarium.id.desc()).first()
+    last_record.fish = aquarium.fish
+    last_record.other = aquarium.other
+    last_record.plant = aquarium.plant
     db.commit()
-    return db_aquarium
 
 #POST en el Acuario data
 def aquarium_name_email(db: Session, aquarium: schemas.AquariumCreate):

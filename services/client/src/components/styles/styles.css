@@ -300,12 +300,22 @@ input[type=number] {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; }
+  .NewAquarium__Data input::placeholder, .Aquarium__Data input::placeholder {
+    color: #0303B5;
+    font-weight: 900;
+    text-align: left;
+    font-size: 16px; }
   .NewAquarium__Data-p, .Aquarium__Data-p {
     color: #FF0000;
-    font-size: 24px; }
+    font-size: 16px; }
   .NewAquarium__Data-img, .Aquarium__Data-img {
     height: auto;
     width: 250px; }
+  .NewAquarium__Data-icon, .Aquarium__Data-icon {
+    font-size: 30px;
+    margin-right: 10px; }
+  .NewAquarium__Data-input, .Aquarium__Data-input {
+    margin: 25px 0px; }
   .NewAquarium .btn, .Aquarium .btn {
     background: #FF0000;
     color: #F0F0F0;
@@ -325,10 +335,12 @@ input[type=number] {
       .NewAquarium__Data .inputStyle, .Aquarium__Data .inputStyle {
         width: 80%; }
       .NewAquarium__Data-p, .Aquarium__Data-p {
-        color: #FF0000;
         font-size: 16px; }
       .NewAquarium__Data-img, .Aquarium__Data-img {
-        width: 70%; } }
+        width: 70%; }
+      .NewAquarium__Data-icon, .Aquarium__Data-icon {
+        font-size: 25px;
+        margin-right: 10px; } }
 
 .NewAquarium {
   overflow: hidden; }

@@ -18,8 +18,3 @@ const landingPage = () => {
 }
   
 export default landingPage;
-
-/*
-            <AboutTheTeam/>
-            <Tecnologies/>
-*/

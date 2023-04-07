@@ -12,7 +12,7 @@ bucket = 'rabbit'
 def obtener_valores_nxp(url=url, token=token, org=org, bucket=bucket):
     with InfluxDBClient(url=url, token=token, org=org) as client:
         query_api = client.query_api()
-        tables = query_api.query('from(bucket:"rabbit") |> range(start: -1d)')
+        tables = query_api.query('from(bucket:"rabbit") |> range(start: -1h)')
 
         valores_agua = []
         valores_potencia = []
@@ -26,4 +26,4 @@ def obtener_valores_nxp(url=url, token=token, org=org, bucket=bucket):
                     valores_potencia.append(record.get_value())
                 if record.get_field() == "ambiente":
                     valores_ambiente.append(record.get_value())
-    return {"agua":valores_agua, "potencia":valores_potencia, "ambiente":valores_ambiente}
+    return {"agua":valores_agua[-1], "potencia":valores_potencia[-1], "ambiente":valores_ambiente[-1]}

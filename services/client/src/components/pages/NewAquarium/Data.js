@@ -21,7 +21,7 @@ const iconLogo = [
 const dataValues = ['fish', 'other', 'plant']
 
 const Data = ({decreaseValue}) => {
-  const [valor, setValor] = useState({"fish": 0, "other":0, "plant": 0})
+  const [valor, setValor] = useState({'fish': 0, 'other':0, 'plant': 0})
   //avoid negative numbers and handleChange in input
   const handleChange = (key, event) => {
     const newValue = event.target.value;
@@ -39,21 +39,21 @@ const Data = ({decreaseValue}) => {
     console.log(auxiliarArray)
   }
   //get y post 
-  const [post, setPost] = useState(null);
+  const [put, setPut] = useState(null);
 
-  const createPost=(e)=> {
+  const createPut=(e)=> {
     e.preventDefault()
     axios
-      .post(`http://localhost:8000/aquarium_data/`, valor)
+      .put(`http://localhost:8000/aquarium_data/`, {'fish':1,'other':2,'plant':3})
       .then((response) => {
-        setPost(response.data);
+        setPut(response.data);
       });
   }
   //if (!post) return "No post!"
 
   return (
     //onSubmit={(e)=>handleSubmit(valor,'measuraments')}
-    <form onSubmit={(e)=>createPost(e)} className="NewAquarium flex flex-j-c flex-a-i flex-f-d-c" >
+    <form onSubmit={(e)=>createPut(e)} className="NewAquarium flex flex-j-c flex-a-i flex-f-d-c" >
       {iconLogo.map((logo, index) => (
         <SelectionItem
           key={index}
