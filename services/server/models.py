@@ -9,5 +9,6 @@ class Aquarium(Base):
     fish = Column(Integer, index=True, default = 0)
     other = Column(Integer, index=True, default = 0)
     plant = Column(Integer, index=True, default = 0)
-    name = Column(String, index=True, default = "Aquarium")
+    #name = Column(String, index=True, default = "Aquarium")
+    number = Column(String, index=True, default = "3024363741")
     gmail = Column(String, index=True, default = "josealejandroa99@gmail.com")
