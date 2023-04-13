@@ -22,7 +22,7 @@ async def send_email_to_aquarium_user(email_aquarium_user, aquarium_last_data):
     email_password = ''
 
     print(aquarium_last_data["agua"]) 
-    if aquarium_last_data["agua"] > 29:
+    if aquarium_last_data["agua"] > 20:
         print('estoy realizando lo del email')
         
         email_receiver = email_aquarium_user[-1].gmail

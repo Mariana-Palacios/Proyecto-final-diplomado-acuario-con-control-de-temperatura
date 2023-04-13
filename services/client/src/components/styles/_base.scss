@@ -47,10 +47,12 @@
 .box{
     height: 50px;
     width: 50px;
-    border: 1px solid $black;
+    //border: 1px solid $black;
     border-radius: 10px;
     text-align: center;
     font-size: 16px;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .box-active{
     font-weight: bold;
@@ -66,3 +68,23 @@ input[type=number] {
     -moz-appearance: textfield; /* Firefox */
 }
 
+
+/// WAVE 
+/*
+.wave{
+    position: absolute;
+    z-index: 10;
+    background-color: #2FF4F4;
+    width: 100vw;
+    bottom: 0;
+    
+}
+.wave-stop{
+    height: 2vw;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.wave-changer{
+    @include waveMove(bigWave, 100vh, 1s)
+}
+*/

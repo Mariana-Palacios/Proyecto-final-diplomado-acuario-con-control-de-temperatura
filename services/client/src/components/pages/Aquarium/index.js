@@ -8,9 +8,13 @@ import { RiPlantFill } from 'react-icons/ri';
 import { FaFish, FaTemperatureLow } from 'react-icons/fa';
 import { GiTurtle, GiWaterDrop, GiFishEscape } from 'react-icons/gi';
 import { BsFillFileBarGraphFill} from 'react-icons/bs'
-import { AiFillThunderbolt } from "react-icons/ai";
+import { AiFillThunderbolt, AiOutlineClose } from "react-icons/ai";
+import { TbTool } from "react-icons/tb";
 
-//
+
+//Images
+import waves from './waves.svg'
+
 
 //Components 
 import Item from '../../utils/Item';
@@ -19,6 +23,7 @@ const Aquarium = () => {
   const [post, setPost] = useState(null);
   const [nxpValues, setNxpValues] = useState(null);
   const [cambioMedida, setCambioMedida] = useState(1);
+  const [aside, setAside] = useState(false);
     //iframe
   const iframeRef = useRef(null);
 
@@ -45,6 +50,19 @@ const Aquarium = () => {
 
   return (
     <div className='Aquarium flex flex-j-c flex-a-i flex-f-d-c'>
+      <aside className={`Aquarium__aside flex flex-j-c flex-a-i  ${aside?'':'hide'}`}>
+        <div className={`Aside flex flex-j-c flex-a-i flex-f-d-c `}>
+          <button onClick={()=>setAside(!aside)} className={`Aside__close`}> <AiOutlineClose /></button>
+          <h2 className='Aside__p'>Modificar</h2>
+          <ul>
+            <Link to="/Name"><li>Nombre</li></Link>
+            <Link to="/Data"><li>Organismos</li></Link>
+            <Link to="/Number"><li>Numero</li></Link>
+            <Link to="/Gmail"><li>Gmail</li></Link>
+          </ul>
+        </div>
+      </aside>
+      <button onClick={()=>setAside(!aside)} className='Aquarium__tool'><TbTool/>Modificar</button>
       {console.log(post[post.length-1]['name'])}
       {console.log(post)}
       <h1>{post[post.length-1]['name']}<GiFishEscape /></h1>
@@ -82,7 +100,9 @@ const Aquarium = () => {
           </div>
         </section>
       </div>
-      <Link to="/NewAquarium/"><button className='btn'>Back</button></Link>
+      <div className={`wave ${aside?'wave-changer':'wave-stop'}`}></div>
+      <img src={waves} className='waterDashboard'/>
+      <Link to="/"><button className='btn'>Back</button></Link>
       <Outlet/>
     </div>
   );

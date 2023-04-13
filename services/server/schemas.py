@@ -5,6 +5,7 @@ from pydantic import BaseModel, EmailStr
 class AquariumBase(BaseModel):
     name: str
     gmail: str
+    number: str
 
 # Definir modelo para crear acuario
 class AquariumCreate(AquariumBase):

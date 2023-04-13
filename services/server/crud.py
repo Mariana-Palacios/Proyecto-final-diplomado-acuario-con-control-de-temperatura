@@ -15,7 +15,8 @@ def update_aquarium(db: Session, aquarium: schemas.AquariumUpdate):
 def aquarium_name_email(db: Session, aquarium: schemas.AquariumCreate):
     db_aquarium_name_gmail = models.Aquarium(
         name=aquarium.name,
-        gmail=aquarium.gmail
+        gmail=aquarium.gmail,
+        number=aquarium.number
     )
     db.add(db_aquarium_name_gmail)
     db.commit()

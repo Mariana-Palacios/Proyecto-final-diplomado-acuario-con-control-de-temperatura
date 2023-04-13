@@ -71,3 +71,34 @@
     }
     animation: #{$animationName} $time ease-in-out forwards;  
 }
+
+
+@mixin animationUpDowm($animationName,$distance, $time, $period){
+    @keyframes #{$animationName} {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY($distance);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    animation: #{$animationName} $time ease-in-out $period;
+}
+
+@mixin semicircularMotion($animationName,$time,$horizontal){
+    @keyframes #{$animationName}{
+        0% {
+          transform: rotate(0deg)  translateX(0);
+        }
+        50% {
+          transform: rotate(-180deg) translateX($horizontal);
+        }
+        100% {
+          transform: rotate(0deg) translateX(0) ;
+        }
+    }
+    animation: #{$animationName} $time ease-in-out infinite;
+}

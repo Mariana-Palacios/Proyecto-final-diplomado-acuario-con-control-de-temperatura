@@ -26,7 +26,7 @@ const Main = () => {
           className='bigLogo' 
         />
         <h1 className='text__title'>Maintain the perfect aquarium <br/>temperature with ease.</h1>
-        <Link to="/NewAquarium"><button className='text__button'>Get started</button></Link>
+        <Link to="/Aquarium"><button className='text__button'>Ir al dashboard</button></Link>
       </div>
       <img 
         src={wave1}

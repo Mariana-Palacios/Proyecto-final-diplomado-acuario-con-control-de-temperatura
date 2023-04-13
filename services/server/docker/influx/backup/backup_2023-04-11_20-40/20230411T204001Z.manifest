@@ -1,0 +1,111 @@
+{
+  "manifestVersion": 2,
+  "kv": {
+    "fileName": "20230411T204001Z.bolt.gz",
+    "size": 3656,
+    "compression": 1
+  },
+  "sql": {
+    "fileName": "20230411T204001Z.sqlite.gz",
+    "size": 3451,
+    "compression": 1
+  },
+  "buckets": [
+    {
+      "organizationID": "a925436a05be5205",
+      "organizationName": "org",
+      "bucketID": "4a3e6f391a347525",
+      "bucketName": "_tasks",
+      "description": "System bucket for task logs",
+      "defaultRetentionPolicy": "autogen",
+      "retentionPolicies": [
+        {
+          "name": "autogen",
+          "replicaN": 1,
+          "duration": 259200000000000,
+          "shardGroupDuration": 86400000000000,
+          "shardGroups": [],
+          "subscriptions": []
+        }
+      ]
+    },
+    {
+      "organizationID": "a925436a05be5205",
+      "organizationName": "org",
+      "bucketID": "8e7eb03eaf9fa1a3",
+      "bucketName": "rabbit",
+      "defaultRetentionPolicy": "autogen",
+      "retentionPolicies": [
+        {
+          "name": "autogen",
+          "replicaN": 1,
+          "duration": 0,
+          "shardGroupDuration": 604800000000000,
+          "shardGroups": [
+            {
+              "id": 1,
+              "startTime": "2023-03-27T00:00:00Z",
+              "endTime": "2023-04-03T00:00:00Z",
+              "shards": [
+                {
+                  "id": 1,
+                  "shardOwners": [],
+                  "fileName": "20230411T204001Z.1.tar.gz",
+                  "size": 68015,
+                  "compression": 1
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "startTime": "2023-04-03T00:00:00Z",
+              "endTime": "2023-04-10T00:00:00Z",
+              "shards": [
+                {
+                  "id": 2,
+                  "shardOwners": [],
+                  "fileName": "20230411T204001Z.2.tar.gz",
+                  "size": 332182,
+                  "compression": 1
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "startTime": "2023-04-10T00:00:00Z",
+              "endTime": "2023-04-17T00:00:00Z",
+              "shards": [
+                {
+                  "id": 3,
+                  "shardOwners": [],
+                  "fileName": "20230411T204001Z.3.tar.gz",
+                  "size": 144383,
+                  "compression": 1
+                }
+              ]
+            }
+          ],
+          "subscriptions": []
+        }
+      ]
+    },
+    {
+      "organizationID": "a925436a05be5205",
+      "organizationName": "org",
+      "bucketID": "b7b2322f1f7fc383",
+      "bucketName": "_monitoring",
+      "description": "System bucket for monitoring logs",
+      "defaultRetentionPolicy": "autogen",
+      "retentionPolicies": [
+        {
+          "name": "autogen",
+          "replicaN": 1,
+          "duration": 604800000000000,
+          "shardGroupDuration": 86400000000000,
+          "shardGroups": [],
+          "subscriptions": []
+        }
+      ]
+    }
+  ]
+}

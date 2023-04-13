@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './components/styles/styles.css'
 import LandingPage from './components/pages/LandingPage';
-//import ShowData from './components/pages/ShowData';
 import NewAquarium from './components/pages/NewAquarium';
-import Name from './components/pages/NewAquarium/Name';
-//import Data from './components/pages/NewAquarium/Data';
-//Aquarium
 import Aquarium from './components/pages/Aquarium';
+import Data from './components/pages/Data';
+import Number from './components/pages/Number';
+import Name from './components/pages/Number';
+import Gmail from './components/pages/Gmail'
 
 function App() {
   return (
@@ -18,6 +18,10 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/NewAquarium" element={<NewAquarium />}/>
           <Route path="/Aquarium" element={<Aquarium />}/>
+          <Route path="/Data" element={<Data />}/>
+          <Route path="/Name" element={<Name />}/>
+          <Route path="/Gmail" element={<Gmail />}/>
+          <Route path="/Number" element={<Number />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -39,10 +39,13 @@
                 font-weight:900;
             }
             &__button{
-                @include button($red, $gray, 25px, 15px, 15px, 40px);
+                @include button(none, $gray, 25px, 15px, 15px, 40px);
+                background: rgb(255,0,0);
+                background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgb(187, 22, 11) 100%);
             }
             &__button:hover{
-                @include buttonHover($blue,$gray, $dark-blue)
+                @include buttonHover($blue,$gray, $dark-blue);
+                background: $dark-blue
             }
             .bigLogo{
                 height: 150px;
@@ -80,7 +83,8 @@
         //height: 100vh;
         height: 100vh;
         padding: 5%;
-        background-color: $dark-red;
+        background: rgb(3,17,74);
+        background: linear-gradient(90deg, rgba(3,17,74,1) 0%, rgba(45,78,215,1) 100%);
         z-index: -10;
         &__title{
             position: absolute;
@@ -94,7 +98,7 @@
         &__backgroundLine{
             width: 80%;
             height: 20px;
-            background: $blue;
+            background: $dark-gray;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -110,9 +114,20 @@
             @include button($gray, $black, 16px, 5px, 5px, 20px);
             &-1{
                 top: -15%;
+                @include animationUpDowm(adventage-1,-5px, 4s, infinite);
+                i{
+                    @include animationUpDowm(adventage-1-icon,-6px, 2s, infinite);
+                }
+            }
+            &-2{
+                @include animationUpDowm(adventage-1,5px, 4s, infinite);
+                i{
+                    @include semicircularMotion(adventage-2-icon,8s,1px);
+                }
             }
             &-3{
                 top: 15%;
+                @include animationUpDowm(adventage-1,-5px, 4s, infinite);
             }
             &__icon{
                 position: absolute;

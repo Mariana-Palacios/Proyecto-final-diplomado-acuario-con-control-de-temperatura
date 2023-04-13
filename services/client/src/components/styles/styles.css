@@ -32,10 +32,11 @@
 .box {
   height: 50px;
   width: 50px;
-  border: 1px solid #34313D;
   border-radius: 10px;
   text-align: center;
-  font-size: 16px; }
+  font-size: 16px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
 
 .box-active {
   font-weight: bold;
@@ -50,6 +51,24 @@ input[type=number] {
   -moz-appearance: textfield;
   /* Firefox */ }
 
+/*
+.wave{
+    position: absolute;
+    z-index: 10;
+    background-color: #2FF4F4;
+    width: 100vw;
+    bottom: 0;
+    
+}
+.wave-stop{
+    height: 2vw;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.wave-changer{
+    @include waveMove(bigWave, 100vh, 1s)
+}
+*/
 .landingPage .main {
   height: 100vh;
   width: 100vw;
@@ -101,16 +120,19 @@ input[type=number] {
       color: #B11005;
       font-weight: 900; }
     .landingPage .main .text__button {
-      background: #FF0000;
+      background: none;
       color: #F0F0F0;
       padding: 15px 15px;
       border-radius: 40px;
       font-size: 25px;
-      border-color: transparent; }
+      border-color: transparent;
+      background: red;
+      background: linear-gradient(90deg, red 0%, #bb160b 100%); }
     .landingPage .main .text__button:hover {
       background-color: #0404E2;
       color: #F0F0F0;
-      cursor: grab; }
+      cursor: grab;
+      background: #0303B5; }
     .landingPage .main .text .bigLogo {
       height: 150px;
       width: 370px;
@@ -138,7 +160,8 @@ input[type=number] {
   width: 100vw;
   height: 100vh;
   padding: 5%;
-  background-color: #B11005;
+  background: #03114a;
+  background: linear-gradient(90deg, #03114a 0%, #2d4ed7 100%);
   z-index: -10; }
   .landingPage .adventages__title {
     position: absolute;
@@ -151,7 +174,7 @@ input[type=number] {
   .landingPage .adventages__backgroundLine {
     width: 80%;
     height: 20px;
-    background: #0404E2;
+    background: #b6b3b3;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -170,9 +193,52 @@ input[type=number] {
     font-size: 16px;
     border-color: transparent; }
     .landingPage .adventages .adventage-1 {
-      top: -15%; }
+      top: -15%;
+      animation: adventage-1 4s ease-in-out infinite; }
+@keyframes adventage-1 {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); }
+  100% {
+    transform: translateY(0); } }
+      .landingPage .adventages .adventage-1 i {
+        animation: adventage-1-icon 2s ease-in-out infinite; }
+@keyframes adventage-1-icon {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-6px); }
+  100% {
+    transform: translateY(0); } }
+    .landingPage .adventages .adventage-2 {
+      animation: adventage-1 4s ease-in-out infinite; }
+@keyframes adventage-1 {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(5px); }
+  100% {
+    transform: translateY(0); } }
+      .landingPage .adventages .adventage-2 i {
+        animation: adventage-2-icon 8s ease-in-out infinite; }
+@keyframes adventage-2-icon {
+  0% {
+    transform: rotate(0deg) translateX(0); }
+  50% {
+    transform: rotate(-180deg) translateX(1px); }
+  100% {
+    transform: rotate(0deg) translateX(0); } }
     .landingPage .adventages .adventage-3 {
-      top: 15%; }
+      top: 15%;
+      animation: adventage-1 4s ease-in-out infinite; }
+@keyframes adventage-1 {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-5px); }
+  100% {
+    transform: translateY(0); } }
     .landingPage .adventages .adventage__icon {
       position: absolute;
       width: 100px;
@@ -408,44 +474,140 @@ input[type=number] {
       100% {
         width: 30vw; } } }
 
-.Aquarium iframe {
-  width: 100% !important;
-  height: 100% !important; }
-.Aquarium__temperature, .Aquarium__graphics {
-  border: 1px solid #34313D;
-  border-radius: 10px;
-  text-align: center; }
-.Aquarium__section {
-  margin: 30px; }
-.Aquarium__temperature {
-  height: 300px;
-  width: 500px; }
-.Aquarium__graphics {
-  height: auto;
-  width: 100%; }
-@media screen and (max-width: 600px) {
-  .Aquarium {
-    overflow-x: hidden; }
-    .Aquarium .Item {
-      margin: 0px 20px; }
-    .Aquarium .container {
-      flex-direction: column; }
-    .Aquarium .btn {
-      background: #FF0000;
-      color: #F0F0F0;
-      padding: 5px 15px;
-      border-radius: 40px;
-      font-size: 14px;
-      border-color: transparent;
-      font-weight: bolder;
-      margin: 5px; }
-    .Aquarium__section {
-      width: 100%;
-      margin: none; }
-    .Aquarium__temperature, .Aquarium__graphics {
-      padding: 5%;
-      height: auto;
-      width: 80%; } }
+.Aquarium {
+  height: 100vh;
+  width: 100vw; }
+  .Aquarium .waterDashboard {
+    width: 100vw;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: -1; }
+  .Aquarium .btn {
+    border: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    background: #2d4ed7;
+    background: linear-gradient(90deg, #2d4ed7 0%, #00229f 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+  .Aquarium .waterDashboard {
+    position: absolute;
+    bottom: 0; }
+  .Aquarium .wave {
+    position: absolute;
+    z-index: 10;
+    background-color: #2FF4F4;
+    width: 100vw;
+    bottom: 0; }
+  .Aquarium .wave-stop {
+    height: 2vw;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; }
+  .Aquarium .wave-changer {
+    animation: bigWave 1s ease-in-out forwards; }
+@keyframes bigWave {
+  0% {
+    height: 2vw;
+    bottom: 0;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%; }
+  25% {
+    height: calc($height/2); }
+  50% {
+    bottom: 0;
+    height: 100vh; }
+  75% {
+    height: calc($height/2); }
+  100% {
+    height: 2vw;
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; } }
+  .Aquarium iframe {
+    width: 100% !important;
+    height: 100% !important; }
+  .Aquarium__temperature, .Aquarium__graphics {
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25); }
+  .Aquarium__section {
+    margin: 30px;
+    background-color: white;
+    padding: 10px;
+    border: none; }
+  .Aquarium__temperature {
+    height: 300px;
+    width: 500px; }
+  .Aquarium__graphics {
+    height: auto;
+    width: 100%; }
+  .Aquarium__tool {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #34313D;
+    color: white !important;
+    padding: 5px 15px;
+    border-radius: 40px;
+    font-size: 14px;
+    border-color: transparent;
+    margin: 10px; }
+  .Aquarium__tool:hover {
+    background-color: #0404E2;
+    color: #34313D;
+    cursor: grab;
+    color: white !important;
+    font-weight: lighter; }
+  .Aquarium__aside {
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh; }
+    .Aquarium__aside .Aside {
+      position: absolute;
+      width: 60%;
+      height: 80%;
+      background-color: #F0F0F0;
+      border-radius: 20px; }
+      .Aquarium__aside .Aside li {
+        list-style: none;
+        text-decoration: none;
+        color: black; }
+      .Aquarium__aside .Aside__p {
+        color: black; }
+      .Aquarium__aside .Aside__close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 20px;
+        margin: 15px; }
+    .Aquarium__aside .wave {
+      position: absolute;
+      bottom: 0; }
+  @media screen and (max-width: 600px) {
+    .Aquarium {
+      overflow-x: hidden; }
+      .Aquarium .Item {
+        margin: 0px 20px; }
+      .Aquarium .container {
+        flex-direction: column; }
+      .Aquarium .btn {
+        background: #007BFC;
+        color: #F0F0F0;
+        padding: 5px 15px;
+        border-radius: 40px;
+        font-size: 14px;
+        border-color: transparent;
+        font-weight: bolder;
+        margin: 5px; }
+      .Aquarium__section {
+        width: 100%;
+        margin: none; }
+      .Aquarium__temperature, .Aquarium__graphics {
+        padding: 5%;
+        height: auto;
+        width: 80%; }
+      .Aquarium__aside .Aside {
+        width: 90%;
+        height: 95%; } }
 
 .selecItem__icon {
   width: 40px;

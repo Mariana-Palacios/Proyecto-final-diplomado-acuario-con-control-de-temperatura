@@ -1,15 +1,57 @@
 .Aquarium{
+    //position: relative;
+    height: 100vh;
+    width: 100vw;
+    .waterDashboard{
+        width: 100vw;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+    }
+    .btn{
+        border: none;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+        background: rgb(45,78,215);
+        background: linear-gradient(90deg, rgba(45,78,215,1) 0%, rgba(0,34,159,1) 100%);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .waterDashboard{
+        position: absolute;
+        bottom: 0;
+    }
+    .wave{
+        position: absolute;
+        z-index: 10;
+        background-color: #2FF4F4;
+        width: 100vw;
+        bottom: 0;
+        
+    }
+    .wave-stop{
+        height: 2vw;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+    .wave-changer{
+        @include waveMove(bigWave, 100vh, 1s)
+    }
     iframe {
         width: 100% !important;
         height: 100% !important;
     }
     &__temperature,&__graphics{
-        border: 1px solid $black;
-        border-radius: 10px;
+        //border: 1px solid $black;
+        //border-radius: 10px;
         text-align: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+        //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     &__section{
         margin:30px;
+        background-color: white;
+        padding: 10px;
+        border: none;
     }
     &__temperature{
         height: 300px;
@@ -18,6 +60,51 @@
     &__graphics{
         height: auto;
         width: 100%;
+    }
+    &__tool{
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include button($black, white !important, 14px, 5px, 15px, 40px);
+        margin: 10px;    
+    }
+    &__tool:hover{
+        @include buttonHover($blue, $black, none);
+        color: white !important;
+        font-weight: lighter;
+    }
+    &__aside{
+        position: absolute;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        //background-color: rgba(0, 0, 0, 0.464);
+        .Aside{
+            position: absolute;
+            width: 60%;
+            height: 80%;
+            background-color: $gray;
+            border-radius: 20px;
+            li{
+                list-style: none;
+                text-decoration:none;
+                color: black;
+            }
+            &__p{
+                color: black;
+            }
+            &__close{
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 20px;
+                margin: 15px;
+            }
+        }
+        .wave{
+            position: absolute;
+            bottom: 0;
+        }
     }
     @media screen and (max-width: 600px) {
         overflow-x: hidden;
@@ -28,7 +115,7 @@
             flex-direction: column;
         }
         .btn{
-            @include button($red, $gray, 14px, 5px, 15px, 40px);
+            @include button(#007BFC, $gray, 14px, 5px, 15px, 40px);
             font-weight: bolder;
             margin:5px;
         }
@@ -40,6 +127,12 @@
             padding: 5%;
             height: auto;
             width: 80%;
+        }
+        &__aside{
+            .Aside{
+                width: 90%;
+                height: 95%;
+            }
         }
     }
 }

@@ -75,4 +75,4 @@ async def send_messages_every_10_minutes():
 @app.on_event("startup")
 async def startup_event():
     print("Empezando...")
-    task_send_messages = asyncio.create_task(send_messages_every_10_minutes())
+    #task_send_messages = asyncio.create_task(send_messages_every_10_minutes())

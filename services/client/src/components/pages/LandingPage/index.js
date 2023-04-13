@@ -11,10 +11,11 @@ const landingPage = () => {
         <div className="landingPage">
             <Main/>
             <Adventages/>
-            <AboutTheTeam/>
             <Tecnologies/>
         </div>
     )
 }
   
 export default landingPage;
+
+//            <AboutTheTeam/>
