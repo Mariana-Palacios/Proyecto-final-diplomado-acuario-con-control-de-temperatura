@@ -4,7 +4,7 @@ from influxdb_client import WritePrecision, InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 
-url = 'http://52.21.250.6:8086'
+url = 'http://localhost:8086'
 token = 'T4dtS1z0wpYXxGO10kbjYzi4OvHmvKWhKfQQbt1VQdrpKv0rLKdl3u6XHo_0ZEDUIPCQthLoFkpTR1X533XgTQ=='
 org = 'org'
 bucket = 'rabbit'

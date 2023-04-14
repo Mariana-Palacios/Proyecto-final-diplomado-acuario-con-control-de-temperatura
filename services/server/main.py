@@ -7,6 +7,7 @@ import uvicorn
 import threading
 import time
 import asyncio
+from Generate_prediction  import generate_prediction
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -90,15 +91,21 @@ def get_valores_nxp():
 def get_valores_nxp_3d():
     return nxpdata.obtener_valores_nxp_3d()
 
+#GET Predicted power of the day
+@app.get("/predicted_power")
+def get_predicted_power():
+    return generate_prediction()
+
 
 async def send_messages_every_10_minutes():
     while True:
         # enviar mensajes aquí
-        await sendEmail.send_email_to_aquarium_user(crud.get_aquarium_data(db=SessionLocal()),nxpdata.obtener_valores_nxp())
-        await sendWhatsApp.send_whatsapp_to_aquarium_user(crud.get_aquarium_data(db=SessionLocal()),nxpdata.obtener_valores_nxp())
+        print('me estoy ejecutando')
+        await sendEmail.send_email_to_aquarium_user(crud.get_latest_aquarium_id(db=SessionLocal()),nxpdata.obtener_valores_nxp())
+        await sendWhatsApp.send_whatsapp_to_aquarium_user(crud.get_latest_aquarium_id(db=SessionLocal()),nxpdata.obtener_valores_nxp())
         await asyncio.sleep(1800)
 
 @app.on_event("startup")
 async def startup_event():
     print("Empezando...")
-    #task_send_messages = asyncio.create_task(send_messages_every_10_minutes())
+    task_send_messages = asyncio.create_task(send_messages_every_10_minutes())

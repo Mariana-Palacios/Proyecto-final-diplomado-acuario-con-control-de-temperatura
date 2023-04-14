@@ -7,7 +7,7 @@ import axios from 'axios';
 import { RiPlantFill } from 'react-icons/ri';
 import { FaFish, FaTemperatureLow } from 'react-icons/fa';
 import { GiTurtle, GiWaterDrop, GiFishEscape } from 'react-icons/gi';
-import { BsFillFileBarGraphFill} from 'react-icons/bs'
+import { BsFillFileBarGraphFill, BsCashCoin } from 'react-icons/bs'
 import { AiFillThunderbolt, AiOutlineClose } from "react-icons/ai";
 import { TbTool } from "react-icons/tb";
 
@@ -22,6 +22,7 @@ import Item from '../../utils/Item';
 const Aquarium = () => {
   const [post, setPost] = useState(null);
   const [nxpValues, setNxpValues] = useState(null);
+  const [predictedPower, setPredictedPower] = useState(null);
   const [cambioMedida, setCambioMedida] = useState(1);
   const [aside, setAside] = useState(false);
     //iframe
@@ -34,6 +35,9 @@ const Aquarium = () => {
     axios.get(`http://52.21.250.6:8000/nxp_data/`).then((response) => {
       setNxpValues(response.data);
     });
+    axios.get(`http://52.21.250.6:8000/predicted_power/`).then((response) => {
+      setPredictedPower(response.data);
+    });
   }, []);
 
     //<FaTemperatureLow />, //Temperature
@@ -45,7 +49,7 @@ const Aquarium = () => {
 
   const items = ['fish','plant','other']
 
-  if (!nxpValues | !post) return(
+  if (!nxpValues | !post | !predictedPower) return(
     <div class="spinner">
       <div class="dot1"></div>
       <div class="dot2"></div>
@@ -58,10 +62,13 @@ const Aquarium = () => {
           <button onClick={()=>setAside(!aside)} className={`Aside__close`}> <AiOutlineClose /></button>
           <h2 className='Aside__p'>Modificar</h2>
           <ul>
-            <Link to="/Name"><li>Nombre</li></Link>
-            <Link to="/Data"><li>Organismos</li></Link>
-            <Link to="/Number"><li>Numero</li></Link>
-            <Link to="/Gmail"><li>Gmail</li></Link>
+          {[{ path: "/Name", label: "Nombre" },{ path: "/Data", label: "Organismos" },{ path: "/Number", label: "Numero" },{ path: "/Gmail", label: "Gmail" }].map(item => (
+            <li key={item.path}>
+              <Link to={item.path} activeClassName="Aside__active-link">
+                {item.label}
+              </Link>
+            </li>
+          ))}
           </ul>
         </div>
       </aside>
@@ -95,9 +102,12 @@ const Aquarium = () => {
           </div>
         </section>
         <section className='Aquarium__graphics Aquarium__section flex flex-j-c flex-a-i flex-f-d-c'>
-          <div className='flex flex-j-c flex-a-i'>
-            <div className='Item__icon Item__icon-1'><BsFillFileBarGraphFill /></div>
-            <h2>Graphics</h2>
+          <div className='Aquarium__container'>
+            <div className='flex flex-j-c flex-a-i'>
+              <div className='Item__icon Item__icon-1'><BsFillFileBarGraphFill /></div>
+              <h2>Consumo</h2>
+            </div>
+            <h2>{`${(predictedPower/24).toFixed(2)} kw/h`}</h2>
           </div>
         </section>
       </div>

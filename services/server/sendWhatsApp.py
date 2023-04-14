@@ -1,9 +1,11 @@
 from twilio.rest import Client
-
+import os
 
 async def send_whatsapp_to_aquarium_user(number_aquarium_user, aquarium_last_data):
-
+    account_sid = os.getenv('account_sid')
+    auth_token = os.getenv('auth_token') 
     client = Client(account_sid, auth_token)
+    print(number_aquarium_user.number)
     if aquarium_last_data["agua"] > 20:
         message = client.messages.create(
         from_='whatsapp:+14155238886',
@@ -17,8 +19,7 @@ async def send_whatsapp_to_aquarium_user(number_aquarium_user, aquarium_last_dat
 
             Atentamente,
             🐠 Termo Fish 🦀🐠🐟🐡🐚""".format(aquarium_last_data["agua"]),
-        to='whatsapp:+573024363741'
+        to='whatsapp:' + number_aquarium_user.number
         )
-
         print(message.sid)
 
