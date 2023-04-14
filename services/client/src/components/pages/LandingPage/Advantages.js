@@ -4,12 +4,16 @@ import '../../styles/styles.css'
 import { FaTemperatureHigh, FaFish} from 'react-icons/fa';
 import { BsFileBarGraphFill } from "react-icons/bs";
 
+
+import ocean from './ocean.svg'
+
 const Adventages = () => {
   const iconsLogo = [ <FaTemperatureHigh/>, <FaFish/>, <BsFileBarGraphFill/>] 
   const text = ['parla1', 'parla2', 'parla3']
 
   return (
     <section className="adventages flex flex-j-c flex-a-i">
+        <img src={ocean} className='adventages__img'/>
         <h1 className='adventages__title'>Advantages</h1>
         <div className='adventages__backgroundLine'></div>
         {iconsLogo.map((iconLogo,index)=>{

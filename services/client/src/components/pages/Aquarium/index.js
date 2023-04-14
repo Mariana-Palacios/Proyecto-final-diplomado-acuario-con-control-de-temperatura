@@ -36,10 +36,7 @@ const Aquarium = () => {
     });
   }, []);
 
-
-  if (!nxpValues) return null;
-  if (!post) return null;
-  //<FaTemperatureLow />, //Temperature
+    //<FaTemperatureLow />, //Temperature
   const iconLogo = [
       <FaFish />, //Fish
       <RiPlantFill />, //Plant
@@ -48,6 +45,12 @@ const Aquarium = () => {
 
   const items = ['fish','plant','other']
 
+  if (!nxpValues | !post) return(
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+  )
   return (
     <div className='Aquarium flex flex-j-c flex-a-i flex-f-d-c'>
       <aside className={`Aquarium__aside flex flex-j-c flex-a-i  ${aside?'':'hide'}`}>

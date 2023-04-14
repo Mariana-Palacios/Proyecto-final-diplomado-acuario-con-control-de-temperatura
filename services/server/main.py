@@ -85,6 +85,12 @@ def aquarium_all_data(db: Session = Depends(get_db)):
 def get_valores_nxp():
     return nxpdata.obtener_valores_nxp()
 
+#GET Valores de nxp
+@app.get("/nxp_data_3d")
+def get_valores_nxp_3d():
+    return nxpdata.obtener_valores_nxp_3d()
+
+
 async def send_messages_every_10_minutes():
     while True:
         # enviar mensajes aquí

@@ -51,24 +51,6 @@ input[type=number] {
   -moz-appearance: textfield;
   /* Firefox */ }
 
-/*
-.wave{
-    position: absolute;
-    z-index: 10;
-    background-color: #2FF4F4;
-    width: 100vw;
-    bottom: 0;
-    
-}
-.wave-stop{
-    height: 2vw;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-}
-.wave-changer{
-    @include waveMove(bigWave, 100vh, 1s)
-}
-*/
 .landingPage .main {
   height: 100vh;
   width: 100vw;
@@ -180,6 +162,11 @@ input[type=number] {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: -1; }
+  .landingPage .adventages__img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    left: 0; }
   .landingPage .adventages .adventage {
     position: relative;
     width: 33%;
@@ -189,9 +176,10 @@ input[type=number] {
     background: #F0F0F0;
     color: #34313D;
     padding: 5px 5px;
-    border-radius: 20px;
+    border-radius: none;
     font-size: 16px;
-    border-color: transparent; }
+    border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
     .landingPage .adventages .adventage-1 {
       top: -15%;
       animation: adventage-1 4s ease-in-out infinite; }
@@ -318,6 +306,11 @@ input[type=number] {
     .landingPage .adventages__backgroundLine {
       width: 10px;
       height: 70%; }
+    .landingPage .adventages__img {
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
     .landingPage .adventages .adventage {
       width: 100% !important;
       height: 300px;
@@ -327,7 +320,7 @@ input[type=number] {
       background: #F0F0F0;
       color: #34313D;
       padding: 5px 5px;
-      border-radius: 20px;
+      border-radius: none;
       font-size: 16px;
       border-color: transparent;
       margin: 25px 0; }
@@ -494,7 +487,7 @@ input[type=number] {
     bottom: 0; }
   .Aquarium .wave {
     position: absolute;
-    z-index: 10;
+    z-index: 1000000;
     background-color: #2FF4F4;
     width: 100vw;
     bottom: 0; }
@@ -579,9 +572,6 @@ input[type=number] {
         top: 0;
         font-size: 20px;
         margin: 15px; }
-    .Aquarium__aside .wave {
-      position: absolute;
-      bottom: 0; }
   @media screen and (max-width: 600px) {
     .Aquarium {
       overflow-x: hidden; }
@@ -609,6 +599,54 @@ input[type=number] {
         width: 90%;
         height: 95%; } }
 
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  transform: translate(-50%, -30%);
+  left: 50%;
+  top: 30%;
+  text-align: center;
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear; }
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #0303B5;
+  border-radius: 100%;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out; }
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+@-webkit-keyframes sk-rotate {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1); } }
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
 .selecItem__icon {
   width: 40px;
   height: 40px;
