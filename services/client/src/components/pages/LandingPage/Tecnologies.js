@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { SiRabbitmq, SiGrafana, SiReact, SiNextdotjs, SiFastapi, SiInfluxdb} from "react-icons/si";
+import { SiRabbitmq, SiGrafana, SiReact, SiFastapi, SiInfluxdb} from "react-icons/si";
+import {CgTwilio} from "react-icons/cg"
 import '../../styles/styles.css'
 
 const Technologies = () => {
-  const technologiesIcon = [<SiRabbitmq/>, <SiGrafana/>, <SiReact/>, <SiNextdotjs/>, <SiFastapi/>, <SiInfluxdb/>]
+  const technologiesIcon = [<SiRabbitmq/>, <SiGrafana/>, <SiReact/>, <CgTwilio/>, <SiFastapi/>, <SiInfluxdb/>]
   return (
     <section className="technologies">
       <h2 className="technologies__text">Our technologies</h2>

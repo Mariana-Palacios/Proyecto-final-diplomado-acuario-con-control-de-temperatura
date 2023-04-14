@@ -12,7 +12,7 @@ bucket = 'rabbit'
 def obtener_valores_nxp(url=url, token=token, org=org, bucket=bucket):
     with InfluxDBClient(url=url, token=token, org=org) as client:
         query_api = client.query_api()
-        tables = query_api.query('from(bucket:"rabbit") |> range(start: -3d)')
+        tables = query_api.query('from(bucket:"rabbit") |> range(start: -1m)')
 
         valores_agua = []
         valores_potencia = []

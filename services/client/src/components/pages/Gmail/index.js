@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-//import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import axios from 'axios';
 import { AiOutlineMail, AiOutlineUserAdd } from 'react-icons/ai';
 import { BsTelephone } from 'react-icons/bs';
@@ -8,17 +8,13 @@ import { BsTelephone } from 'react-icons/bs';
 import newAquarium from './newAquarium.svg';
 
 const Name = ({increaseValue, decreaseValue}) => {
-  const [nombreAcuario, setNombreAcuario] = useState('')
   const [emailAcuario, setEmailAcuario] = useState('')
-  const [numberAcuario, setNumberAcuario] = useState('')
   const [mensajeErrorGmail, setMensajeErrorGmail] = useState('')
-  const [mensajeErrorNombre, setmensajeErrorNombre] = useState('')
-  const [mensajeErrorNumber, setmensajeErrorNumber] = useState('')
   const [post, setPost] = useState(null);
   const createPost=(e)=> {
     e.preventDefault()
     axios
-      .post(`http://localhost:8000/aquarium_data/`, {'name':nombreAcuario, 'gmail':emailAcuario, 'number':numberAcuario})
+      .put(`http://52.21.250.6:8000/Gmail/`, {'gmail':emailAcuario})
       .then((response) => {
         setPost(response.data);
       });
@@ -32,12 +28,7 @@ const Name = ({increaseValue, decreaseValue}) => {
     }
   }  
   const handleValues = () =>{
-    nombreAcuario === ''? setmensajeErrorNombre('Ingrese nombre de acuario'):setmensajeErrorNombre('')
     emailAcuario === ''?setMensajeErrorGmail('Email no valido'):setMensajeErrorGmail('')
-    numberAcuario === ''?setmensajeErrorNumber('Numero no valido'):setmensajeErrorNumber('')
-    if(nombreAcuario !== '' & emailAcuario !== '' & numberAcuario!==''){
-      increaseValue()
-    }
   }
 
   return (
@@ -61,7 +52,7 @@ const Name = ({increaseValue, decreaseValue}) => {
         />
       </div>
       <div className='flex'>
-        <button onClick={decreaseValue} className='btn'>Back</button>
+        <Link to="/Aquarium"><button className='btn'>Back</button></Link>
         <button onClick={handleValues} className='btn'>Next</button>
       </div>
       

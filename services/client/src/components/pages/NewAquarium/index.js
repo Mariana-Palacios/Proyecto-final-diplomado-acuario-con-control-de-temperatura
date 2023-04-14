@@ -17,7 +17,7 @@ const NewAquarium = ({components}) => {
     return (
       <div className='NewAquariumMain flex flex-j-c flex-a-i '>
         {components}
-        <div className={`wave ${classChanger} `}></div>
+        <div className={`wave wave-changer ${classChanger} `}></div>
         <img
           src={corner}
           alt='corner'

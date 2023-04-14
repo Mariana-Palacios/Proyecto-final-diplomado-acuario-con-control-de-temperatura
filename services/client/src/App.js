@@ -7,7 +7,7 @@ import NewAquarium from './components/pages/NewAquarium';
 import Aquarium from './components/pages/Aquarium';
 import Data from './components/pages/Data';
 import Number from './components/pages/Number';
-import Name from './components/pages/Number';
+import Name from './components/pages/Name';
 import Gmail from './components/pages/Gmail'
 
 function App() {
@@ -16,12 +16,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<LandingPage />} />
-          <Route path="/NewAquarium" element={<NewAquarium />}/>
           <Route path="/Aquarium" element={<Aquarium />}/>
-          <Route path="/Data" element={<Data />}/>
-          <Route path="/Name" element={<Name />}/>
-          <Route path="/Gmail" element={<Gmail />}/>
-          <Route path="/Number" element={<Number />}/>
+          <Route path="/Data" element={<NewAquarium components={<Data />}/>}/>
+          <Route path="/Name" element={<NewAquarium components={<Name />}/>}/>
+          <Route path="/Gmail" element={<NewAquarium components={<Gmail />}/>}/>
+          <Route path="/Number" element={<NewAquarium components={<Number />}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

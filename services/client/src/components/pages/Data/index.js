@@ -44,7 +44,7 @@ const Data = ({decreaseValue}) => {
   const createPut=(e)=> {
     e.preventDefault()
     axios
-      .put(`http://localhost:8000/aquarium_data/`, valor)
+      .put(`http://52.21.250.6:8000/aquarium_data/`, valor)
       .then((response) => {
         setPut(response.data);
       });

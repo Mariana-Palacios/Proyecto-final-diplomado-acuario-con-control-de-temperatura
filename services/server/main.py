@@ -20,7 +20,7 @@ origins = [
     "http://termofish.club:3000",
     "http://52.21.250.6:8000",
     "http://127.0.0.1:3000",
-    "http://52.21.250.6:3000"
+    "http://52.21.250.6:3000",
 ]
 
 app.add_middleware(
@@ -42,27 +42,47 @@ def get_db():
 
 #POST
 @app.post("/aquarium_data/", response_model=schemas.Aquarium)
-def aquarium_name_email(aquarium: schemas.Aquarium, db: Session = Depends(get_db)):
-    # await asyncio.sleep(0)
-    return crud.aquarium_name_email(db=db, aquarium=aquarium)
+def add_aquarium_user(aquarium: schemas.Aquarium, db: Session = Depends(get_db)):
+    return crud.aquarium_user(db=db, aquarium=aquarium)
 
-#PUT
+#PUT aquarium DATA
 @app.put("/aquarium_data/")
-def update_aquarium_aquarium(aquarium: schemas.AquariumUpdate, db: Session = Depends(get_db)):
-    # await asyncio.sleep(0)
-    crud.update_aquarium(db=db, aquarium=aquarium)
+def update_aquarium_data(aquarium: schemas.AquariumUpdate, db: Session = Depends(get_db)):
+    crud.update_aquarium_data(db=db, aquarium=aquarium)
+    return {'put realizado'}
+
+#PUT aquarium NAME
+@app.put("/Name/")
+def update_aquarium_data(aquarium: schemas.AquariumNameUpdate, db: Session = Depends(get_db)):
+    crud.update_aquarium_name(db=db, aquarium=aquarium)
+    return {'put realizado'}
+
+
+#PUT aquarium GMAIL
+@app.put("/Gmail/")
+def update_aquarium_data(aquarium: schemas.AquariumGmailUpdate, db: Session = Depends(get_db)):
+    crud.update_aquarium_email(db=db, aquarium=aquarium)
+    return {'put realizado'}
+
+#PUT aquarium NUMBER
+@app.put("/Number/")
+def update_aquarium_data(aquarium: schemas.AquariumNumberUpdate, db: Session = Depends(get_db)):
+    crud.update_aquarium_number(db=db, aquarium=aquarium)
     return {'put realizado'}
 
 #GET
 @app.get("/aquarium_data/")
-def get_last_id_aquarium(db: Session = Depends(get_db)):
-    # await asyncio.sleep(0)
-    return crud.get_aquarium_data(db=db)
+def latest_aquarium_id(db: Session = Depends(get_db)):
+    return crud.get_latest_aquarium_id(db=db)
+
+#GET
+@app.get("/aquarium_data_all/")
+def aquarium_all_data(db: Session = Depends(get_db)):
+    return crud.get_aquarium_all_data(db=db)
 
 #GET Valores de nxp
 @app.get("/nxp_data")
 def get_valores_nxp():
-    # await asyncio.sleep(0)
     return nxpdata.obtener_valores_nxp()
 
 async def send_messages_every_10_minutes():

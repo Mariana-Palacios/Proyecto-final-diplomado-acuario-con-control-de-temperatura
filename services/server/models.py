@@ -12,3 +12,8 @@ class Aquarium(Base):
     name = Column(String, index=True, default = "Aquarium")
     gmail = Column(String, index=True, default = "josealejandroa99@gmail.com")
     number = Column(String, index=True, default = "+573024363741")
+
+class Email(Base):
+    __tablename__ = "Email"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    gmail = Column(String, index=True, default = "josealejandroa99@gmail.com")

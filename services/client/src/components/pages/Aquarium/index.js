@@ -28,10 +28,10 @@ const Aquarium = () => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/aquarium_data/`).then((response) => {
+    axios.get(`http://52.21.250.6:8000/aquarium_data/`).then((response) => {
       setPost(response.data);
     });
-    axios.get(`http://localhost:8000/nxp_data/`).then((response) => {
+    axios.get(`http://52.21.250.6:8000/nxp_data/`).then((response) => {
       setNxpValues(response.data);
     });
   }, []);
@@ -63,9 +63,7 @@ const Aquarium = () => {
         </div>
       </aside>
       <button onClick={()=>setAside(!aside)} className='Aquarium__tool'><TbTool/>Modificar</button>
-      {console.log(post[post.length-1]['name'])}
-      {console.log(post)}
-      <h1>{post[post.length-1]['name']}<GiFishEscape /></h1>
+      <h1>{post['name']}<GiFishEscape /></h1>
       <div className='container flex'>
         <section className='flex flex-j-c flex-a-i flex-f-d-c'>
           <div className='flex flex-j-c flex-a-i Aquarium__section'>
@@ -88,7 +86,7 @@ const Aquarium = () => {
                       key={index}
                       id={index} 
                       icon={logo}
-                      valor={post[post.length-1][items[index]]}
+                      valor={post[items[index]]}
                   />
               ))}
           </div>
