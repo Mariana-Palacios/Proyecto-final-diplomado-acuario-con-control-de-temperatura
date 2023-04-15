@@ -359,6 +359,24 @@ input[type=number] {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center; }
+  .NewAquarium__Aside, .Aquarium__Aside {
+    width: 80vw;
+    height: 80vh;
+    background: #F0F0F0;
+    position: absolute;
+    z-index: 100;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5px; }
+    .NewAquarium__Aside-close, .Aquarium__Aside-close {
+      background: none;
+      color: black;
+      padding: none none;
+      border-radius: none;
+      font-size: 16px;
+      border-color: transparent;
+      margin: 5px; }
+    .NewAquarium__Aside-close:hover, .Aquarium__Aside-close:hover {
+      cursor: grab; }
   .NewAquarium__Data input::placeholder, .Aquarium__Data input::placeholder {
     color: #0303B5;
     font-weight: 900;

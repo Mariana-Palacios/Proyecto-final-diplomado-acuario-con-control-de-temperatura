@@ -4,6 +4,22 @@
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    &__Aside{
+        width: 80vw;
+        height: 80vh;
+        background: $gray;
+        position: absolute;
+        z-index: 100;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 5px;
+        &-close{
+            @include button(none, black, 16px,none,none, none);
+            margin: 5px;
+        }
+        &-close:hover{
+            cursor: grab;
+        }
+    }
     &__Data{
         input::placeholder {
             color: $dark-blue;
