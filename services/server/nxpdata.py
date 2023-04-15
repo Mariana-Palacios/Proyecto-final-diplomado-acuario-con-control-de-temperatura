@@ -5,7 +5,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 
 
 url = 'http://localhost:8086'
-token = 'Ef3YSYgqh2hsFfJI2_78t_RhHSXdH5H-l1KVStUtCYTQbvGfnSqhO7MrGs_fer0oKq3N0DELualk2m8aXU6ndA=='
+token = 'I17UQAi-N7gK43OagxNkhVyZy71aTpUmYQqoO1PoDdTtf9ZW_59Ybq0mJ1jGMFBAkcPDG3LccLBZI-Wx01q01Q=='
 org = 'org'
 bucket = 'rabbit'
 
@@ -27,7 +27,7 @@ def obtener_valores_nxp(url=url, token=token, org=org, bucket=bucket):
                 if record.get_field() == "ambiente":
                     valores_ambiente.append(record.get_value())
 
-    return {"agua":valores_agua, "potencia":valores_potencia, "ambiente":valores_ambiente}
+    return {"agua":valores_agua[-1], "potencia":valores_potencia[-1], "ambiente":valores_ambiente[-1]}
 
 def obtener_valores_nxp_3d(url=url, token=token, org=org, bucket=bucket):
     with InfluxDBClient(url=url, token=token, org=org) as client:

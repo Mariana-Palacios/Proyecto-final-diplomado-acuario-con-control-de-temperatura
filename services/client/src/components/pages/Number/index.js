@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Outlet, Link } from "react-router-dom";
 import axios from 'axios';
 import { BsTelephone } from 'react-icons/bs';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiFillCheckCircle } from 'react-icons/ai';
 
 //images
 import newAquarium from './newAquarium.svg';
@@ -12,6 +12,7 @@ const Name = ({increaseValue, decreaseValue}) => {
   const [numberAcuario, setNumberAcuario] = useState('')
   const [mensajeErrorNumber, setmensajeErrorNumber] = useState('')
   const [hide, setHide] = useState(true)
+  const [check, setCheck] = useState(false)
   const [post, setPost] = useState(null);
   const createPost=(e)=> {
     e.preventDefault()
@@ -37,12 +38,21 @@ const Name = ({increaseValue, decreaseValue}) => {
   return (
     <form onSubmit={(e)=>createPost(e)} className='NewAquarium NewAquarium__Data flex flex-j-s-b flex-a-i flex-f-d-c'>
       <aside className={`NewAquarium__Aside ${hide?'':'hide'}`}>
-        <button className='NewAquarium__Aside-close'><AiOutlineClose/></button>
+        <button onClick={()=>setHide(false)} className='NewAquarium__Aside-close'><AiOutlineClose/></button>
         <h1 className='NewAquarium__Aside-title'>ESCANEA QR</h1>
         <img src={qr} className='NewAquarium__Aside-img'/>
         <p className='NewAquarium__Aside-p'>Link chat recibir mensajes</p>
         <button className='NewAquarium__Aside-btn btn'>Link</button>
       </aside>
+      {console.log(post)}
+      {
+        post==null?'':
+        <aside className={`NewAquarium__Aside ${check?'':'hide'}`}>
+          <button onClick={()=>setCheck(false)} className='NewAquarium__Aside-close'><AiOutlineClose/></button>
+          <AiFillCheckCircle/>
+          <h1 className='NewAquarium__Aside-title'>Su nombre ha <br/>sido actualizado</h1>
+        </aside>
+      }
       <h1>New aquarium</h1>
       <img
           src={newAquarium}
@@ -63,7 +73,7 @@ const Name = ({increaseValue, decreaseValue}) => {
       </div>
       <div className='flex'>
         <Link to="/Aquarium"><button className='btn'>Back</button></Link>
-        <button onClick={handleValues} className='btn'>Next</button>
+        <button onClick={()=>setCheck(true)} className='btn'>Guardar</button>
       </div>
       <Outlet />
     </form>
